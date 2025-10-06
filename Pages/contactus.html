@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+      <link rel="icon" type="image/png" sizes="32x32" href="/Images/logo.png">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto+Condensed:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Roboto Condensed', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .navbar-brand,
+    .nav-link {
+      color: #ffffff !important;
+      font-weight: 600;
+    }
+    
+    .navbar .nav-link.active {
+  color: #FFD700 !important;
+  border-bottom: 2px solid #FFD700;
+}
+.navbar .nav-link.active:hover
+   {
+    border: none;
+    color: #2E7D32 !important;
+   }
+
+.nav-link:hover {
+  background-color: #ffffff;   
+  color: #2E7D32 !important;  
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7); 
+  border-radius: 20px;
+}
+
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+      margin-right: 10px;
+    }
+    .dropdown-menu {
+      background-color: #ffffff;   
+      border-radius: 10px;         
+      border: none;                
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    }
+    .dropdown-item {
+      color: #2E7D32;              
+      border-radius: 20px;         
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+    }
+    .dropdown-item:hover {
+      background-color: #2E7D32;   
+      color: #ffffff;              
+    }
+    .cus-footer {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+    }
+    .cus-footer .footer-top {
+      padding: 50px 0;
+    }
+    .footer-link {
+      color: #ffffff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: 0.3s;
+    }
+    .footer-link:hover {
+      color: #d4edda;
+      transform: translateX(5px);
+    }
+    .social-circle {
+      width: 36px;
+      height: 36px;
+      margin-right: 8px;
+      background: #ffffff;
+      color: #2E7D32;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+    .social-circle:hover {
+      background: #d4edda;
+      transform: scale(1.2);
+    }
+    .footer-bottom {
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      padding: 10px 0;
+    }
+    /* Contact Section */
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #2E7D32;
+  position: relative;
+  margin-bottom: 25px;
+}
+.section-title::after {
+  position: absolute;
+  width: 60px;
+  height: 3px;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  content: '';
+}
+
+.faq-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #2E7D32;
+  position: relative;
+  margin-bottom: 25px;
+}
+.faq-title::after {
+  position: absolute;
+  width: 300px;
+  height: 3px;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  content: '';
+}
+
+/* Contact Card */
+.contact-card {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* Form Inputs */
+.contact-card .form-control,
+.contact-card textarea,
+.contact-card .form-select {
+  border-radius: 10px;
+  border: 1px solid #ced4da;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  padding: 12px 15px;
+}
+.contact-card .form-control:focus,
+.contact-card textarea:focus,
+.contact-card .form-select:focus {
+  border-color: #2E7D32;
+  box-shadow: 0 0 6px rgba(46, 125, 50, 0.4);
+}
+
+/* Form Labels */
+.contact-card .form-label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Submit Button */
+.contact-card .btn-success {
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  border: none;
+}
+.contact-card .btn-success:hover {
+  background: linear-gradient(135deg, #1B5E20, #2E7D32);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+}
+
+/* Error Messages */
+.text-danger {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Map Container */
+.map-container {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  height: 400px;
+  position: relative;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Contact Info Cards */
+.contact-info-card {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  height: 45%;
+}
+
+.contact-info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: white;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.contact-info-item:hover {
+  background: #f8f9fa;
+  transform: translateX(3px);
+}
+
+.contact-info-item i {
+  color: #2E7D32;
+  width: 16px;
+  margin-right: 8px;
+  font-size: 12px;
+}
+
+.contact-info-item span {
+  color: #333;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+/* Responsive Design with Em Units */
+@media (max-width: 75em) {
+  .section-title {
+    font-size: 1.625em;
+  }
+  
+  .faq-title {
+    font-size: 1.625em;
+  }
+  
+  .contact-card {
+    padding: 1.25em;
+  }
+  
+  .contact-info-card {
+    padding: 0.75em;
+  }
+}
+
+@media (max-width: 62em) {
+  .section-title {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  
+  .faq-title {
+    font-size: 1.5em;
+    text-align: center;
+  }
+  
+  .contact-card {
+    margin-bottom: 1.875em;
+    padding: 1.25em;
+  }
+  
+  .contact-info-card {
+    height: auto;
+    margin-bottom: 1.25em;
+  }
+  
+  .map-container {
+    height: 21.875em;
+    margin-top: 1.25em;
+  }
+  
+  .accordion-button {
+    font-size: 0.9375em;
+    padding: 1em 1.25em;
+  }
+  
+  .accordion-body {
+    padding: 1.125em 1.25em;
+    font-size: 0.875em;
+  }
+}
+
+@media (max-width: 48em) {
+  .section-title {
+    font-size: 1.375em;
+    margin-bottom: 1.25em;
+  }
+  
+  .faq-title {
+    font-size: 1.375em;
+    margin-bottom: 1.25em;
+  }
+  
+  .section-title::after,
+  .faq-title::after {
+    width: 12.5em;
+  }
+  
+  .contact-card {
+    padding: 1.25em;
+    margin-bottom: 1.5625em;
+  }
+  
+  .contact-info-card {
+    padding: 0.9375em;
+    margin-bottom: 1.25em;
+  }
+  
+  .map-container {
+    height: 18.75em;
+  }
+  
+  .contact-info-item {
+    flex-direction: row;
+    text-align: left;
+    padding: 0.625em;
+    margin-bottom: 0.375em;
+  }
+  
+  .contact-info-item i {
+    margin-right: 0.5em;
+    margin-bottom: 0;
+    font-size: 0.875em;
+  }
+  
+  .contact-info-item span {
+    font-size: 0.75em;
+  }
+  
+  .accordion-item {
+    margin-bottom: 0.625em;
+  }
+  
+  .accordion-button {
+    font-size: 0.875em;
+    padding: 0.875em 1em;
+  }
+  
+  .accordion-body {
+    padding: 1em 1.125em;
+    font-size: 0.8125em;
+  }
+  
+  .navbar-brand {
+    font-size: 0.875em !important;
+  }
+  
+  .nav-link {
+    font-size: 0.875em;
+  }
+}
+
+@media (max-width: 36em) {
+  .container {
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+  }
+  
+  .section-title {
+    font-size: 1.25em;
+    margin-bottom: 0.9375em;
+  }
+  
+  .faq-title {
+    font-size: 1.25em;
+    margin-bottom: 0.9375em;
+  }
+  
+  .section-title::after,
+  .faq-title::after {
+    width: 4.375em;
+    height: 0.125em;
+  }
+  
+  .contact-card,
+  .contact-info-card {
+    padding: 0.9375em;
+    margin-bottom: 1.25em;
+  }
+  
+  .map-container {
+    height: 15.625em;
+  }
+  
+  .contact-info-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 0.75em;
+    margin-bottom: 0.5em;
+  }
+  
+  .contact-info-item i {
+    margin-right: 0;
+    margin-bottom: 0.375em;
+    font-size: 1em;
+  }
+  
+  .contact-info-item span {
+    font-size: 0.6875em;
+    line-height: 1.4;
+  }
+  
+  .form-control,
+  .form-select,
+  textarea {
+    font-size: 0.875em;
+    padding: 0.625em 0.75em;
+  }
+  
+  .btn-success {
+    font-size: 0.875em;
+    padding: 0.625em;
+  }
+  
+  .accordion-button {
+    font-size: 0.8125em;
+    padding: 0.75em 0.875em;
+  }
+  
+  .accordion-body {
+    padding: 0.875em 1em;
+    font-size: 0.75em;
+    line-height: 1.5;
+  }
+  
+  .navbar-brand {
+    font-size: 0.75em !important;
+  }
+  
+  .nav-link {
+    font-size: 0.8125em;
+    padding: 0.5em 0.75em;
+  }
+  
+  .offcanvas-body {
+    padding: 0.9375em;
+  }
+}
+
+@media (max-width: 30em) {
+  .section-title {
+    font-size: 1.125em;
+  }
+  
+  .faq-title {
+    font-size: 1.125em;
+  }
+  
+  .section-title::after,
+  .faq-title::after {
+    width: 7.5em;
+  }
+  
+  .contact-card {
+    padding: 0.75em;
+  }
+  
+  .contact-info-card {
+    padding: 0.75em;
+  }
+  
+  .map-container {
+    height: 12.5em;
+  }
+  
+  .form-control,
+  .form-select,
+  textarea {
+    font-size: 0.8125em;
+    padding: 0.5em 0.625em;
+  }
+  
+  .btn-success {
+    font-size: 0.8125em;
+    padding: 0.5em;
+  }
+  
+  .accordion-button {
+    font-size: 0.75em;
+    padding: 0.625em 0.75em;
+  }
+  
+  .accordion-body {
+    padding: 0.75em 0.875em;
+    font-size: 0.6875em;
+  }
+  
+  
+  .navbar-brand img {
+    height: 2.1875em;
+  }
+}
+
+@media (max-width: 22.5em) {
+  .section-title {
+    font-size: 1em;
+  }
+  
+  .faq-title {
+    font-size: 1em;
+  }
+  
+  .section-title::after,
+  .faq-title::after {
+    width: 6.25em;
+  }
+  
+  .contact-card,
+  .contact-info-card {
+    padding: 0.625em;
+  }
+  
+  .map-container {
+    height: 11.25em;
+  }
+  
+  .form-control,
+  .form-select,
+  textarea {
+    font-size: 0.75em;
+    padding: 0.375em 0.5em;
+  }
+  
+  .btn-success {
+    font-size: 0.75em;
+    padding: 0.375em;
+  }
+  
+  .accordion-button {
+    font-size: 0.6875em;
+    padding: 0.5em 0.625em;
+  }
+  
+  .accordion-body {
+    padding: 0.625em 0.75em;
+    font-size: 0.625em;
+  }
+  
+  .navbar-brand {
+    font-size: 0.625em !important;
+  }
+  
+  .navbar-brand img {
+    height: 1.875em;
+  }
+}
+/* FAQ Accordion Styling */
+.accordion {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.accordion-item {
+  border: none;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+.accordion-button {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  color: #1B5E20;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  padding: 18px 24px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.accordion-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.accordion-button:hover::before {
+  left: 0;
+}
+
+.accordion-button:hover {
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+.accordion-button:focus {
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.2);
+  border: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background: linear-gradient(135deg, #2E7D32, #1B5E20);
+  color: #ffffff;
+  box-shadow: 0 3px 10px rgba(46, 125, 50, 0.3);
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%231B5E20'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  transition: transform 0.3s ease;
+}
+
+.accordion-body {
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  color: #333;
+  padding: 20px 24px;
+  border-top: 2px solid #e9ecef;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.accordion-body a {
+  color: #2E7D32;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.accordion-body a:hover {
+  color: #1B5E20;
+  text-decoration: underline;
+}
+.is-valid {
+  border-color: #28a745 !important;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+.is-invalid {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+.section-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #1B5E20;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.form-control.is-valid {
+  border-color: #28a745;
+}
+
+.form-control.is-invalid {
+  border-color: #dc3545;
+}
+  /* Base alert */
+  .cart-alert {
+    background: linear-gradient(135deg, #d1f7d6, #e8f7ea);
+    color: #155724;
+    border: none;
+    border-left: 5px solid #28a745;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+    animation: slideInCenter 0.2s ease-out;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.8);
+    overflow: hidden;
+    pointer-events: all;
+  }
+  
+  /* Cart alert icon */
+  .cart-alert::before {
+    content: "✓";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #28a745;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  /* Adjust text to accommodate icon */
+  .cart-alert {
+    padding-left: 50px;
+  }
+  
+  /* Close button enhanced */
+  .cart-alert .close-btn {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #28a745;
+    background: rgba(255,255,255,0.8);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    line-height: 1;
+  }
+  
+  .cart-alert .close-btn:hover {
+    background: rgba(255,255,255,1);
+    color: #155724;
+    transform: scale(1.1);
+  }
+  
+  /* Enhanced animations */
+  @keyframes slideInCenter {
+    from {
+      opacity: 0;
+      transform: translateY(-100%) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-100%) scale(0.9);
+    }
+  }
+  .btn-add { 
+    background-color:#388e3c; 
+    color:white; 
+    width:48%; 
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .btn-add:hover { 
+    background-color:#2e7d32; 
+    transform: translateY(-2px);
+  }
+    .card-text { 
+    color:#2e7d32; 
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+.cart-alert {
+  background: linear-gradient(135deg, #d1f7d6, #e8f7ea);
+  color: #155724;
+  border: none;
+  border-left: 5px solid #28a745;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+  animation: slideInCenter 0.2s ease-out;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.8);
+  overflow: hidden;
+  pointer-events: all;
+}
+
+/* Cart alert icon */
+.cart-alert::before {
+  content: "✓";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #28a745;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Adjust text to accommodate icon */
+.cart-alert {
+  padding-left: 50px;
+}
+
+/* Close button enhanced */
+.cart-alert .close-btn {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #28a745;
+  background: rgba(255,255,255,0.8);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.cart-alert .close-btn:hover {
+  background: rgba(255,255,255,1);
+  color: #155724;
+  transform: scale(1.1);
+}
+
+
+.cart-alert.error {
+  background: linear-gradient(135deg, #f8d7da, #fce8ea);
+  color: #721c24;
+  border-left: 5px solid #dc3545;
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cart-alert.error::before {
+  content: "✕";
+  background: #dc3545;
+}
+
+.cart-alert.error .close-btn {
+  color: #dc3545;
+}
+
+.cart-alert.error .close-btn:hover {
+  color: #721c24;
+}
+.cart-count-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #dc3545;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: none; /* default hidden */
+}
+#suggestions {
+  position: absolute;
+  top: 100%; /* right below input */
+  left: 0;
+  width: 100%;
+  max-height: 250px; /* scrollable if too long */
+  overflow-y: auto;
+  z-index: 1000;
+  display: none; /* hidden by default */
+  border: 1px solid #ced4da;
+  border-top: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Each suggestion item */
+.suggestion-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #495057;
+}
+
+/* Hover effect */
+.suggestion-item:hover {
+  background-color: #198754; /* Bootstrap success color */
+  color: #fff;
+}
+
+/* Scrollbar styling */
+#suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+
+#suggestions::-webkit-scrollbar-thumb {
+  background-color: #198754;
+  border-radius: 3px;
+}
+
+#suggestions::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+form[role="search"] {
+  position: relative;
+}
+  #cartAlertBox {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1060;
+    max-width: 400px;
+    min-width: 320px;
+    pointer-events: none;
+  }
+ .suggestion-box {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  width: 300px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover,
+.active-suggestion {
+  background: #198754;
+  color: white;
+}
+
+
+
+</style>
+</head>
+<body>
+  <div id="cartAlertBox"></div>
+
+    <div class="bg-light py-2 border-bottom">
+  <div class="container d-flex justify-content-center">
+    <form class="d-flex w-75" role="search" onsubmit="searchProduct(); return false;">
+      <input class="form-control me-2" type="search" id="searchBox" placeholder="Search products..." type="text">
+      <div id="suggestions" class="list-group" ></div>
+      <button class="btn btn-success" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a style="font-size: 16px;" class="navbar-brand d-flex align-items-center" href="home.html">
+      <img style="margin-right: 1px;" src="/Images/logo.png" alt="Logo">
+      Wɪʟꜱᴏɴ Sᴘᴏʀᴛɪɴɢ Gᴏᴏᴅꜱ
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="Aboutus.html">About Us</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Brands</a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="nike.html">Nike</a></li>
+              <li><a class="dropdown-item" href="spartan.html">Spartan</a></li>
+              <li><a class="dropdown-item" href="baden.html">Baden</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="comparision.html">Comparison</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contactus.html">Contact Us</a></li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#cartCanvas" data-bs-toggle="offcanvas"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        <li class="nav-item"><a class="nav-link" href="loginregister.html"><i class="fa-solid fa-user-plus"></i> Register/Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas">
+  <div class="offcanvas-header bg-success text-white">
+    <h5 class="offcanvas-title"><i class="fas fa-shopping-cart"></i> My Cart</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div id="cart-items"></div>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <h5><strong>Total:</strong></h5>
+      <h5><strong><span id="cart-total">0.00</span> $</strong></h5>
+    </div>
+    <div class="mt-3 d-grid gap-2">
+      <button class="btn btn-success" onclick="checkout()">Checkout</button>
+      <button class="btn btn-outline-success" data-bs-dismiss="offcanvas">Continue Shopping</button>
+    </div>
+  </div>
+  
+</div>
+<!-- Contact Section -->
+<div class="container my-5">
+  <h2 class="section-title text-center mb-5">Get in Touch</h2>
+  
+  <!-- Contact Form and Info Row -->
+  <div class="row g-4 mb-5">
+    
+    <!-- Contact Form -->
+    <div class="col-lg-8" id="contact">
+      <div class="contact-card">
+        <div class="d-flex align-items-center mb-4">
+          <i class="fas fa-envelope text-success me-3" style="font-size: 24px;"></i>
+          <h5 class="mb-0">Send Us a Message</h5>
+        </div>
+        
+        <form id="contactForm" onsubmit="return validateForm()">
+          
+          <!-- Name and Email Row -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Full Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your name">
+                <div class="text-danger" id="nameError"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Email</label>
+                <input type="email" id="email" class="form-control" placeholder="Enter your email">
+                <div class="text-danger" id="emailError"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Phone and Subject Row -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Phone</label>
+                <input type="text" id="phone" class="form-control" placeholder="Enter your phone number">
+                <div class="text-danger" id="phoneError"></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label fw-semibold">Subject</label>
+                <select id="subject" class="form-select">
+                  <option value="">Select a subject</option>
+                  <option>General Inquiry</option>
+                  <option>Order Support</option>
+                  <option>Product Feedback</option>
+                  <option>Partnership Request</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div class="mb-4">
+            <label class="form-label fw-semibold">Message</label>
+            <textarea id="message" rows="5" maxlength="500" class="form-control" placeholder="Type your message..."></textarea>
+            <div class="d-flex justify-content-between">
+              <small class="text-muted"><span id="charCount">0</span>/500 characters</small>
+              <div class="text-danger" id="messageError"></div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button class="btn btn-success btn-lg w-100" type="submit">
+            <i class="fas fa-paper-plane me-2"></i>Send Message
+          </button>
+          <div id="formAlert"></div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="col-lg-4">
+      <div class="contact-info-card">
+        <div class="d-flex align-items-center mb-3">
+          <i class="fas fa-headset text-success me-2" style="font-size: 18px;"></i>
+          <h6 class="mb-0" style="font-size: 14px;">Contact Information</h6>
+        </div>
+        
+        <div class="contact-info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>60 E Walton St, Chicago, IL 60611, United States</span>
+        </div>
+        
+        <div class="contact-info-item">
+          <i class="fas fa-phone"></i>
+          <span>+1 312-366-2336</span>
+        </div>
+        
+        <div class="contact-info-item">
+          <i class="fas fa-envelope"></i>
+          <span><a style="text-decoration: none;color: black;"  href="mailto:info@wilsonsportinggoods.com?subject=Inquiry&body=Hello Wilson Team,">info@wilsonsportinggoods.com</a>
+          </span>
+        </div>
+        
+        <div class="contact-info-item">
+          <i class="fas fa-clock"></i>
+          <span>Mon–Fri: 9am – 6pm</span>
+        </div>
+        
+        <div class="contact-info-item">
+          <i class="fas fa-globe"></i>
+          <span>24/7 Online Support</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map Section -->
+  <div class="row" id="map1">
+    <div class="col-12">
+      <div class="d-flex align-items-center mb-4">
+        <i class="fas fa-map-marked-alt text-success me-3" style="font-size: 24px;"></i>
+        <h5 class="mb-0">Find Us</h5>
+      </div>
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d199765.37078101584!2d-87.91357333420788!3d41.92826220205009!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd33a410f0f77%3A0x827e9b80025985ed!2sWilson%20Flagship%20-%20Chicago!5e0!3m2!1sen!2s!4v1759058738652!5m2!1sen!2s" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="container my-5" id="faq">
+  <h2 class="faq-title text-center mb-5">Frequently Asked Questions</h2>
+  <div class="accordion" id="faqAccordion">
+    <!-- FAQ 1 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faqHeading1">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+          How can I track my order?
+        </button>
+      </h2>
+      <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faqHeading1" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Once your order is shipped, you will receive a confirmation email with a tracking number. You can track your order directly on our website under the "Track Order" section.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 2 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faqHeading2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+          What is your return policy?
+        </button>
+      </h2>
+      <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faqHeading2" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          We offer a 30-day return policy on all products in original condition. Please visit our "Returns & Exchanges" page to initiate the return process.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 3 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faqHeading3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+          How can I contact customer support?
+        </button>
+      </h2>
+      <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faqHeading3" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          You can reach our support team via email at <a href="mailto:info@wilsonsportinggoods.com">info@wilsonsportinggoods.com</a> or call us at (123) 456-7890 during our support hours: Mon-Fri 9:00 AM – 6:00 PM.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 4 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faqHeading4">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+          Do you offer international shipping?
+        </button>
+      </h2>
+      <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faqHeading4" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes, we ship internationally. Shipping costs and delivery times vary depending on your location. Please check our "Shipping Information" page for detailed rates.
+        </div>
+      </div>
+    </div>
+
+    <!-- FAQ 5 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faqHeading5">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+          Can I register my product for warranty?
+        </button>
+      </h2>
+      <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faqHeading5" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Absolutely. To register your product and activate the warranty, visit our <a href="loginregister.html">Product Registration</a> page and complete the form with your purchase details.
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+    <!-- Footer -->
+<footer class="cus-footer text-white">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h4 class="fw-bold mb-3 d-flex align-items-center">
+            <img src="/Images/logo.png" alt="Logo" style="height: 40px; width: auto; margin-right: 10px;">
+            Wilson Sporting Goods
+          </h4>
+          <p>Pushing the limits of performance. From courts to fields, we fuel your passion for sports.</p>
+          <a href="loginregister.html" class="btn btn-light btn-sm mt-2 fw-bold">Join the Team</a>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="home.html" class="footer-link"><i class="fas fa-home me-2"></i>Home</a></li>
+            <li><a href="Aboutus.html" class="footer-link"><i class="fas fa-users me-2"></i>About Us</a></li>
+            <li class="dropdown">
+              <a href="#" class="footer-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-dumbbell me-2"></i>Brands</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="nike.html">Nike</a></li>
+                <li><a class="dropdown-item" href="spartan.html">Spartan</a></li>
+                <li><a class="dropdown-item" href="baden.html">Baden</a></li>
+              </ul>
+            </li>
+            <li><a href="comparision.html" class="footer-link"><i class="fas fa-balance-scale me-2"></i>Comparison</a></li>
+            <li><a href="contactus.html" class="footer-link"><i class="fas fa-envelope me-2"></i>Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="contactus.html#faq" class="footer-link"><i class="fas fa-question-circle me-2"></i>FAQ</a></li>
+            <li><a href="contactus.html#map1" class="footer-link"><i class="fas fa-shipping-fast me-2"></i>Store Locator</a></li>
+            <li><a href="contactus.html#contact" class="footer-link"><i class="fas fa-map-marker-alt me-2"></i>Contact Support</a></li>
+            <li><a href="loginregister.html" class="footer-link"><i class="fas fa-shield-alt me-2"></i>Product Registration</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Contact Info</h6>
+          <p><i class="fas fa-map-marker-alt me-2"></i>60 E Walton St, Chicago, IL 60611, United States</p>
+          <p><i class="fas fa-phone me-2"></i>+1 312-366-2336</p>
+          <p><i class="fas fa-envelope me-2"></i><a style="text-decoration: none;color: white;"  href="mailto:info@wilsonsportinggoods.com?subject=Inquiry&body=Hello Wilson Team,">info@wilsonsportinggoods.com</a></p>
+          <h6 class="fw-bold mb-3">Follow Us</h6>
+          <div class="d-flex">
+            <a href="https://www.facebook.com/share/1HcF7QNqLy/" target="_blank"  class="social-circle"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/wilsonjp1914" target="_blank" class="social-circle"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/wilson?igsh=dGs0Z2d4dXpib2lr" target="_blank" class="social-circle"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@wilsonsportinggoods?feature=shared" target="_blank" class="social-circle"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="mb-0">© 2025 Wilson Sporting Goods. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+</body>
+</html>
+<script>
+  function checkout() {
+  let cartItemsDiv = document.getElementById("cart-items");
+  let totalDiv = document.getElementById("cart-total");
+
+  let cartText = cartItemsDiv.innerText.trim();
+  let totalText = totalDiv.innerText.trim();
+
+  if (cartText !== "" && cartText !== "Your cart is empty") {
+    // ✅ Agar cart me items hain
+    showCartAlert("Thank you! Your checkout is successful.");
+
+    // cart clean karo aur "Your cart is empty" dikhado
+    cartItemsDiv.innerHTML = `<p class="text-center text-muted my-3">Your cart is empty</p>`;
+    totalDiv.innerHTML = "0.00";
+    cart = [];
+    updateCartCount(0);
+
+    // offcanvas close karo
+    let offcanvasEl = document.getElementById('cartCanvas');
+    let offcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+    if (offcanvas) {
+      offcanvas.hide();
+    }
+  } else {
+    // ❌ Agar cart empty hai
+    showCartError("Your cart is empty. Please add items before checkout.");
+  }
+}
+
+
+// Cart alert functions
+function showCartAlert(message) {
+  const alertBox = document.getElementById("cartAlertBox");
+
+  // Create alert div with enhanced styling
+  const alert = document.createElement("div");
+  alert.className = "cart-alert";
+  alert.innerHTML = `
+    <strong>✓ Success!</strong><br>
+    ${message}
+    <span class="close-btn" onclick="closeCartAlert(this)">&times;</span>
+  `;
+
+  // Append alert immediately
+  alertBox.appendChild(alert);
+
+  // Auto close after 3s with fast animation
+  setTimeout(() => {
+    if (alert && alert.parentElement) {
+      alert.style.animation = "fadeOut 0.2s ease-in";
+      setTimeout(() => {
+        if (alert.parentElement) {
+          alert.remove();
+        }
+      }, 200);
+    }
+  }, 3000);
+}
+
+function closeCartAlert(element) {
+  const alert = element.parentElement;
+  alert.style.animation = "fadeOut 0.2s ease-in";
+  setTimeout(() => {
+    if (alert.parentElement) {
+      alert.remove();
+    }
+  }, 200);
+}
+function showCartError(message) {
+  const alertBox = document.getElementById("cartAlertBox");
+
+  const alert = document.createElement("div");
+  alert.className = "cart-alert error";
+  alert.innerHTML = `
+    <strong>✕ Error!</strong><br>
+    ${message}
+    <span class="close-btn" onclick="closeCartAlert(this)">&times;</span>
+  `;
+
+  alertBox.appendChild(alert);
+
+  setTimeout(() => {
+    if (alert && alert.parentElement) {
+      alert.style.animation = "fadeOut 0.2s ease-in";
+      setTimeout(() => alert.remove(), 200);
+    }
+  }, 3000);
+}
+
+function closeCartAlert(element) {
+  const alert = element.parentElement;
+  alert.style.animation = "fadeOut 0.2s ease-in";
+  setTimeout(() => {
+    if (alert.parentElement) {
+      alert.remove();
+    }
+  }, 200);
+}
+
+// Character counter for message textarea
+document.getElementById('message').addEventListener('input', function() {
+  const charCount = this.value.length;
+  document.getElementById('charCount').textContent = charCount;
+  
+  // Change color based on character count
+  const counter = document.getElementById('charCount');
+  if (charCount > 400) {
+    counter.style.color = '#dc3545'; // Red
+  } else if (charCount > 300) {
+    counter.style.color = '#ffc107'; // Yellow
+  } else {
+    counter.style.color = '#6c757d'; // Gray
+  }
+});
+
+function validateForm() {
+  let valid = true;
+
+  // Grab values
+  const name = document.getElementById("name");
+  const email = document.getElementById("email");
+  const phone = document.getElementById("phone");
+  const message = document.getElementById("message");
+  const subject = document.getElementById("subject");
+
+  // Reset previous errors
+  document.querySelectorAll(".text-danger").forEach(el => el.innerText = "");
+
+  // Name validation
+  if (!/^[A-Za-z\s]{3,30}$/.test(name.value.trim())) {
+    document.getElementById("nameError").innerText = "Name must be 3–30 letters.";
+    name.classList.add("is-invalid");
+    valid = false;
+  } else {
+    name.classList.remove("is-invalid");
+    name.classList.add("is-valid");
+  }
+
+  // Email validation
+  if (!/^[\w.-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/.test(email.value.trim())) {
+    document.getElementById("emailError").innerText = "Please enter a valid email.";
+    email.classList.add("is-invalid");
+    valid = false;
+  } else {
+    email.classList.remove("is-invalid");
+    email.classList.add("is-valid");
+  }
+
+  // Phone validation
+  if (!/^\d{10}$/.test(phone.value.trim())) {
+    document.getElementById("phoneError").innerText = "Phone must be 10 digits.";
+    phone.classList.add("is-invalid");
+    valid = false;
+  } else {
+    phone.classList.remove("is-invalid");
+    phone.classList.add("is-valid");
+  }
+
+  // Subject validation
+  if (!subject.value) {
+    subject.classList.add("is-invalid");
+    valid = false;
+  } else {
+    subject.classList.remove("is-invalid");
+    subject.classList.add("is-valid");
+  }
+
+  // Message validation
+  if (message.value.trim().length < 10) {
+    document.getElementById("messageError").innerText = "Message must be at least 10 characters.";
+    message.classList.add("is-invalid");
+    valid = false;
+  } else {
+    message.classList.remove("is-invalid");
+    message.classList.add("is-valid");
+  }
+
+  return valid;
+}
+
+// Handle form submit
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // Stop normal submit
+  if (validateForm()) {
+    const alertBox = document.getElementById("formAlert");
+    alertBox.innerHTML = `
+      <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        <i class="fas fa-check-circle me-2"></i>
+        <strong>Success!</strong> Your message has been sent successfully! We'll get back to you shortly.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>`;
+    this.reset();
+    document.getElementById('charCount').textContent = '0';
+    document.getElementById('charCount').style.color = '#6c757d';
+
+    // Remove validation styles after reset
+    ["name", "email", "phone", "message", "subject"].forEach(id => {
+      document.getElementById(id).classList.remove("is-valid", "is-invalid");
+    });
+    
+    // Scroll to success message
+    alertBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+});
+
+// Real-time validation
+["name", "email", "phone", "message", "subject"].forEach(id => {
+  document.getElementById(id).addEventListener("input", () => {
+    // Clear specific error when user starts typing
+    const field = document.getElementById(id);
+    field.classList.remove("is-invalid");
+    
+    // Clear error message
+    const errorElement = document.getElementById(id + "Error");
+    if (errorElement) {
+      errorElement.innerText = "";
+    }
+  });
+});
+let cart = [];
+const cartItems = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+
+  
+  if (cart.length === 0) {
+    document.getElementById('cart-items').innerHTML = ` <p class="text-center text-muted my-3">Your cart is empty</p> `;
+  }
+
+// ✅ All Products + Pages merged into one object
+// ✅ All Products + Pages
+const allProducts = {
+  // Nike
+  "air zoom pegasus 39": "AirZoomPegasus39",
+  "react infinity run flyknit": "ReactInfinityRunFlyknit",
+  "zoomx vaporfly next% 2": "ZoomXVaporflyNext2",
+  "zoom fly 4": "ZoomFly4",
+  "air zoom structure 24": "AirZoomStructure24",
+  "air zoom wildhorse 7": "AirZoomWildhorse7",
+  "nike pegasus trail 3": "NikePegasusTrail3",
+  "nike air zoom alphafly next% 2": "NikeAirZoomAlphaflyNext2",
+  "react miler 2": "ReactMiler2",
+  "air zoom vomero 16": "AirZoomVomero16",
+  "air zoom freak 4": "AirZoomFreak4",
+  "lebron 20": "LeBron20",
+  "dri-fit aerobill tailwind cap": "Dri-FITAerobillTailwindCap",
+  "pro combat hyperwarm hood": "ProCombatHyperwarmHood",
+  "swoosh headband": "SwooshHeadband",
+  "nike dri-fit legacy91 cap": "NikeDri-FITLegacy91Cap",
+  "brasilia training backpack extra large": "BrasiliaTrainingBackpack(ExtraLarge)",
+  "hayward 2.0 backpack": "Hayward2.0Backpack",
+  "gym club training duffel bag": "GymClubTrainingDuffelBag",
+  "nike varsity elite backpack": "NikeVarsityEliteBackpack",
+  "vapor grip 3 football gloves": "VaporGrip3FootballGloves",
+  "vapor jet 7football gloves": "VaporJet7FootballGloves",
+  "hyperwarm gloves": "HyperwarmGloves",
+  "nike therma-fit football liner gloves": "NikeThermaFITFootballLinerGloves",
+  "everyday cushioned crew socks (3-pack)": "EverydayCushionedCrewSocks3Pack",
+  "pro hyper strong compression arm sleeve": "ProHyperstrongCompressionArmSleeve",
+  "elite basketball crew socks (2-pack)": "EliteBasketballCrewSocks2Pack",
+  "nike elite 2.0 cushioned crew socks (1 pair)": "NikeElite20CushionedCrewSocks1Pair",
+  "training mat": "TrainingMat",
+  "agility training ladder": "AgilityTrainingLadder",
+  "nike speed rope": "NikeSpeedRope",
+  "sport water bottle (24 oz)": "SportWaterBottle24oz",
+
+  // Spartan
+  "boss players edition cb 151": "BossPlayersEditionCB151",
+  "shadow 1000 cb 115": "SHADOW1000CB115",
+  "fighter cb 107": "FighterCB107",
+  "t20 edition 3000 cb 113": "T20Edition3000CB113",
+  "t20 edition 2000 cb 112": "T20Edition2000CB112",
+  "t20 edition 1000 cb 111": "T20Edition1000CB111",
+  "shadow 4000 cb 118": "SHADOW4000CB118",
+  "shadow 3000 cb 117": "SHADOW3000CB117",
+  "spartan trigger": "SPARTANTRIGGER",
+  "spartan premier black & white": "SPARTANPREMIERBLACK&WHITE",
+  "spartan trainer hand stitched": "SPARTANTRAINERHANDSTITCHED",
+  "spartan super shine": "SPARTANSUPERSHINE",
+  "spartan pro select": "SPARTANPROSELECT",
+  "spartan extreme star pu": "SPARTANEXTREMESTARPU",
+  "spartan premier 18 p color": "SPARTANPREMIER18PCOLOR",
+  "spartan japanese 18 p tri colour": "SPARTANJAPANESE18PTRICOLOUR",
+  "spartan with wheels 35×14×14": "SPARTAWITHWHEELS35x14x14",
+  "spartan run back pack": "RUNBACKPACK",
+  "camo special (o) 38×14×11": "CAMOSPECIAL(O)38x14x11",
+  "camo back pack (o) 28×11×12": "CAMOBACKPACK(O)28x11x12",
+  "spartan limited edition keeping gloves": "LIMITEDEDITIONKEEPINGGLOVES",
+  "spartan eco gloves": "1ECOGLOVES",
+  "spartan special": "SPARTANSPECIAL",
+  "cg boss limited edition": "CGBOSSLIMITEDEDITION",
+  "spartan warrior": "SPARTANWARRIOR",
+  "spartan fighter": "SPARTANFIGHTER",
+  "spartan eco": "SPARTANECO",
+  "spartan bullet": "SPARTANBULLET",
+  "t20 special": "T20SPECIAL",
+  "run": "RUN",
+  "eco": "ECO",
+  "limited edition": "LIMITEDEDITION",
+
+  // Baden
+  "perfection elite game basketball": "PerfectionEliteGameBasketball",
+  "baden contender composite basketball": "BadenContenderCompositeBasketball",
+  "baden all star rubber basketball": "BadenAllStarRubberBasketball",
+  "baden legend 29.5": "BadenLegend29.5",
+  "baden rival game indoor basketball": "BadenRivalGameIndoorBasketball",
+  "pro32 basketball": "Pro32Basketball",
+  "skilcoach heavy trainer basketball": "SkilcoachHeavyTrainerBasketball",
+  "crossover basketball": "CrossoverBasketball",
+  "axe avenge pro 3 hybrid bbcor baseball": "AxeAvengePro3HybridBBCORBaseball",
+  "axe strato 2 bbcor baseball bat -3": "AxeStrato2BBCORBaseballBat3|StandardHandle",
+  "2022 Elite One Pro (-3) BBCOR Baseball" : "2022EliteOnePro(-3)BBCORBaseball",
+  "2023 Avenge Pro Hybrid FLARED (-3) BBCOR Baseball Bat" : "2023AvengeProHybridFLARED(-3)BBCORBaseballBat",
+  "baden perfection leather volleyball": "BadenPerfectionLeatherVolleyball",
+  "baden lexum composite volleyball": "BadenLexumCompositeVolleyball",
+  "Baden Light / Microfiber Volleyball" : "BadenLight/MicrofiberVolleyball" ,
+  "Baden Match Point Synthetic / Cushioned Volleyball" : "BadenMatchPointSynthetic/CushionedVolleyball" ,
+  "baden zseries soccer ball": "BadenZSeriesSoccerBall",
+  "Baden Thermo NFHS Soccer Ball": "BadenThermoNFHSSoccerBall",
+  "Baden Thermo Bonded Game Futsal Ball ST4LB": "BadenThermoBondedGameFutsalBallST4LB",
+  "Baden Gold Trophy Series Promo Soccer Ball": "BadenGoldTrophySeriesPromoSoccerBall",
+  "baden champions volleyball set": "BadenChampionsVolleyballSet",
+  "baden kubb game set": "BadenKubbGameSet",
+  "Baden Pro Volleyball Set":"BadenProVolleyballSet",
+  "baden deluxe croquet set": "BadenDeluxeCroquetSet",
+  "Dink Pink 40 Pickleball 3-Pack": "DinkPink40Pickleball3Pack",
+  "Patriot 40 Pickleball 3-Pack": "Patriot40Pickleball3Pack",
+  "PRO1 Pickleball 3-Pack": "PRO1Pickleball3Pack",
+  "Rival 40 Pickleball 3-Pack": "Rival40Pickleball3Pack",
+  "Limited Edition Bogey Boys Pickleball Paddle":"LimitedEditionBogeyBoysPickleballPaddle",
+  "perfection 3k pickleball paddle": "Perfection3kPickleballPaddle",
+  "battle point pickleball paddle": "BattlePointPickleballPaddle",
+  "youth pickleball paddle": "YouthPickleballPaddle",
+
+  // Pages
+  "nike": "nike.html",
+  "spartan": "spartan.html",
+  "baden": "baden.html",
+  "about us": "Aboutus.html",
+  "comparison": "comparision.html",
+  "home": "home.html",
+  "contact us": "contactus.html"
+};
+
+// ✅ Brand detection keywords
+const brandMap = {
+  nike: [
+    "nike", "zoom", "pegasus", "flyknit", "react", "lebron", "vomero", "freak",
+    "hyperwarm", "swoosh", "duffel", "sock", "cap", "glove", "training",
+    "vapor", "speed", "pack"
+  ],
+  spartan: [
+    "spartan", "cb", "shadow", "t20", "eco", "fighter", "warrior", "boss",
+    "run", "bag", "shine", "camo", "special","limited"
+  ],
+  baden: [
+    "baden", "basketball", "volleyball", "pickleball", "soccer", "baseball",
+    "bat", "ball", "croquet", "kubb"
+  ]
+};
+
+// ✅ Build keyword map for flexible search
+const keywordMap = {};
+for (let name in allProducts) {
+  const keywords = name.toLowerCase().split(/[\s%()″/&-]+/).filter(Boolean);
+  for (let word of keywords) {
+    if (!keywordMap[word]) keywordMap[word] = [];
+    keywordMap[word].push(name); // store product names, not IDs
+  }
+}
+
+// ✅ Improved brand detection
+function getBrandFromProductName(name) {
+  name = name.toLowerCase();
+
+  // Direct detection by product name
+  if (name.includes("spartan")) return "spartan";
+  if (name.includes("baden")) return "baden";
+  if (name.includes("nike")) return "nike";
+
+  // Keyword-based detection
+  for (let brand in brandMap) {
+    if (brandMap[brand].some(k => name.includes(k))) {
+      return brand;
+    }
+  }
+
+  return null; // no brand found
+}
+
+// ✅ Handle redirect
+function handleRedirect(productName) {
+  const productId = allProducts[productName];
+  const brand = getBrandFromProductName(productName);
+
+  if (!brand) {
+    alert(`Brand not recognized for product: ${productName}`);
+    return;
+  }
+
+  // If it's a standalone page
+  if (productId.endsWith(".html")) {
+    window.location.href = productId;
+    return;
+  }
+
+  window.location.href = `${brand}.html#${productId}`;
+}
+
+// ✅ Main search logic
+function searchProduct() {
+  const query = document.getElementById("searchBox").value.trim().toLowerCase();
+  if (!query) return alert("Please enter a search term!");
+
+  // 1️⃣ Exact match
+  if (allProducts[query]) {
+    handleRedirect(query);
+    return;
+  }
+
+  // 2️⃣ Partial match
+  const partialMatch = Object.keys(allProducts).find(name => name.includes(query));
+  if (partialMatch) {
+    handleRedirect(partialMatch);
+    return;
+  }
+
+  // 3️⃣ Word-based match
+  const words = query.split(" ");
+  for (let word of words) {
+    if (keywordMap[word]) {
+      const matchedName = keywordMap[word].find(name => name.includes(word));
+      if (matchedName) {
+        handleRedirect(matchedName);
+        return;
+      }
+    }
+  }
+
+  alert("Product or page not found!");
+}
+
+ const searchBox = document.getElementById("searchBox");
+ const suggestionBox = document.getElementById("suggestions");
+ let currentFocus = -1;
+
+ searchBox.addEventListener("input", function() {
+   let query = this.value.toLowerCase();
+   suggestionBox.innerHTML = "";
+   currentFocus = -1;
+
+   if (!query) {
+     suggestionBox.style.display = "none";
+     return;
+   }
+
+   let matches = Object.keys(allProducts).filter(item => item.includes(query));
+
+   if (matches.length > 0) {
+     suggestionBox.style.display = "block";
+     matches.forEach(match => {
+       let div = document.createElement("div");
+       div.textContent = match;
+       div.classList.add("suggestion-item");
+       div.addEventListener("click", function() {
+         searchBox.value = match;
+         suggestionBox.innerHTML = "";
+         suggestionBox.style.display = "none";
+         searchProduct();
+       });
+       suggestionBox.appendChild(div);
+     });
+   } else {
+     suggestionBox.style.display = "none";
+   }
+ });
+
+
+
+ searchBox.addEventListener("keydown", function(e) {
+   let items = suggestionBox.getElementsByClassName("suggestion-item");
+   if (!items.length) return;
+   if (e.key === "ArrowDown") {
+     currentFocus++;
+     addActive(items);
+   } else if (e.key === "ArrowUp") {
+     currentFocus--;
+     addActive(items);
+   } else if (e.key === "Enter") {
+     e.preventDefault();
+     if (currentFocus > -1 && items[currentFocus]) {
+       items[currentFocus].click();
+     } else {
+       searchProduct();
+     }
+   }
+ });
+
+ function addActive(items) {
+   if (!items) return false;
+   removeActive(items);
+   if (currentFocus >= items.length) currentFocus = 0;
+   if (currentFocus < 0) currentFocus = items.length - 1;
+   items[currentFocus].classList.add("active-suggestion");
+ }
+
+ function removeActive(items) {
+   for (let item of items) {
+     item.classList.remove("active-suggestion");
+   }
+ }
+</script>

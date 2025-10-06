@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/Images/logo.png">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto+Condensed:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Roboto Condensed', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .navbar-brand,
+    .nav-link {
+      color: #ffffff !important;
+      font-weight: 600;
+    }
+    
+   .navbar .nav-link.active {
+   color: #FFD700 !important;
+   border-bottom: 2px solid #FFD700;
+   }
+   .navbar .nav-link.active:hover
+   {
+    border: none;
+    color: #2E7D32 !important;
+   }
+      
+    .nav-link:hover {
+      background-color: #ffffff;   
+      color: #2E7D32 !important;  
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.7); 
+      border-radius: 20px;
+    }
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+      margin-right: 10px;
+    }
+    .dropdown-menu {
+      background-color: #ffffff;   
+      border-radius: 10px;         
+      border: none;                
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    }
+    .dropdown-item {
+      color: #2E7D32;              
+      border-radius: 20px;         
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+    }
+    .dropdown-item:hover {
+      background-color: #2E7D32;   
+      color: #ffffff;              
+    }
+    .cus-footer {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+    }
+    .cus-footer .footer-top {
+      padding: 50px 0;
+    }
+    .footer-link {
+      color: #ffffff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: 0.3s;
+    }
+    .footer-link:hover {
+      color: #d4edda;
+      transform: translateX(5px);
+    }
+    .social-circle {
+      width: 36px;
+      height: 36px;
+      margin-right: 8px;
+      background: #ffffff;
+      color: #2E7D32;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+    .social-circle:hover {
+      background: #d4edda;
+      transform: scale(1.2);
+    }
+    .footer-bottom {
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      padding: 10px 0;
+    }
+    /* Section titles */
+.section-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 28px; color: #2E7D32; margin-bottom: 25px; text-align: center; position: relative; }
+.section-title::after { content: ""; display: block; width: 60px; height: 3px; background: #2E7D32; margin: 8px auto 0; border-radius: 2px; }
+
+    /* About Us Header */
+.about-header { background-color: #f5f5f5; color: #2E7D32; }
+.about-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 2.5rem; margin-bottom: 1rem; }
+.about-subtitle { font-family: 'Roboto Condensed', sans-serif; font-weight: 400; font-size: 1.2rem; color: #333; max-width: 700px; margin: 0 auto 1.5rem auto; }
+.about-divider { width: 80px; height: 3px; background-color: #2E7D32; margin: 0 auto; border: none; border-radius: 2px; }
+
+/* Our Story */
+.our-story-section { background: #f9f9f9; }
+.our-story-section .story-content p { font-size: 16px; line-height: 1.7; margin-bottom: 20px; }
+.our-story-section .story-content strong { color: #2E7D32; }
+.our-story-section img { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.our-story-section img:hover { transform: scale(1.03); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+
+/* Timeline */
+.timeline-section { background: #f5f5f5; }
+.timeline { position: relative; margin: 0 auto; padding: 0; list-style: none; }
+.timeline::before { content: ''; position: absolute; left: 50%; width: 4px; background: #2E7D32; top: 0; bottom: 0; transform: translateX(-50%); }
+.timeline-item { position: relative; width: 50%; padding: 20px 40px; box-sizing: border-box; }
+.timeline-item:nth-child(odd) { left: 0; text-align: right; }
+.timeline-item:nth-child(even) { left: 50%; }
+.timeline-icon { position: absolute; top: 20px; width: 40px; height: 40px; background: #2E7D32; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; z-index: 1; }
+.timeline-item:nth-child(odd) .timeline-icon { right: -20px; }
+.timeline-item:nth-child(even) .timeline-icon { left: -20px; }
+.timeline-content { background: #fff; padding: 15px 20px; border-radius: 10px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
+.timeline-content h4 { color: #2E7D32; margin-bottom: 10px; }
+.timeline-content p { margin: 0; color: #333; }
+
+/* Responsive Timeline */
+@media (max-width: 991px) {
+  .timeline-item { width: 100%; padding: 20px; text-align: left !important; left: 0 !important; }
+  .timeline-item .timeline-icon { left: -20px !important; right: auto !important; }
+  .timeline::before { left: 20px; }
+}
+
+/* Slide-in Animation */
+.slide-in { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+.slide-in.show { opacity: 1; transform: translateY(0); }
+
+/* Team */
+.team-member { text-align: center; background: #fff; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform 0.3s ease; }
+.team-member:hover { transform: translateY(-5px); }
+.team-member img { width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; }
+.team-member h5 { font-weight: 600; margin-bottom: 5px; }
+.team-member p { font-size: 14px; color: #666; }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.section-title {
+  font-weight: 700;
+  color: #2E7D32;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #2E7D32;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.card {
+  border-radius: 15px;
+  border: none;
+}
+
+textarea {
+  resize: none;
+}
+
+.carousel .carousel-item {
+  text-align: center;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-card h5 {
+  font-weight: 600;
+  color: #2E7D32;
+}
+
+.testimonial-card p {
+  margin: 5px 0;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-title { font-size: 2rem; }
+  .about-subtitle { font-size: 1rem; padding: 0 15px; }
+}
+@media (max-width: 480px) {
+  .about-title { font-size: 1.7rem; }
+  .about-subtitle { font-size: 0.95rem; }
+}
+  /* Base alert */
+  .cart-alert {
+    background: linear-gradient(135deg, #d1f7d6, #e8f7ea);
+    color: #155724;
+    border: none;
+    border-left: 5px solid #28a745;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+    animation: slideInCenter 0.2s ease-out;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.8);
+    overflow: hidden;
+    pointer-events: all;
+  }
+  
+  /* Cart alert icon */
+  .cart-alert::before {
+    content: "✓";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #28a745;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  /* Adjust text to accommodate icon */
+  .cart-alert {
+    padding-left: 50px;
+  }
+  
+  /* Close button enhanced */
+  .cart-alert .close-btn {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #28a745;
+    background: rgba(255,255,255,0.8);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    line-height: 1;
+  }
+  
+  .cart-alert .close-btn:hover {
+    background: rgba(255,255,255,1);
+    color: #155724;
+    transform: scale(1.1);
+  }
+  
+  /* Enhanced animations */
+  @keyframes slideInCenter {
+    from {
+      opacity: 0;
+      transform: translateY(-100%) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-100%) scale(0.9);
+    }
+  }
+  .btn-add { 
+    background-color:#388e3c; 
+    color:white; 
+    width:48%; 
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .btn-add:hover { 
+    background-color:#2e7d32; 
+    transform: translateY(-2px);
+  }
+    .card-text { 
+    color:#2e7d32; 
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+.cart-alert {
+  background: linear-gradient(135deg, #d1f7d6, #e8f7ea);
+  color: #155724;
+  border: none;
+  border-left: 5px solid #28a745;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+  animation: slideInCenter 0.2s ease-out;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.8);
+  overflow: hidden;
+  pointer-events: all;
+}
+
+/* Cart alert icon */
+.cart-alert::before {
+  content: "✓";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #28a745;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Adjust text to accommodate icon */
+.cart-alert {
+  padding-left: 50px;
+}
+
+/* Close button enhanced */
+.cart-alert .close-btn {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #28a745;
+  background: rgba(255,255,255,0.8);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.cart-alert .close-btn:hover {
+  background: rgba(255,255,255,1);
+  color: #155724;
+  transform: scale(1.1);
+}
+
+
+.cart-alert.error {
+  background: linear-gradient(135deg, #f8d7da, #fce8ea);
+  color: #721c24;
+  border-left: 5px solid #dc3545;
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cart-alert.error::before {
+  content: "✕";
+  background: #dc3545;
+}
+
+.cart-alert.error .close-btn {
+  color: #dc3545;
+}
+
+.cart-alert.error .close-btn:hover {
+  color: #721c24;
+}
+.cart-count-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #dc3545;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: none; /* default hidden */
+}
+#suggestions {
+  position: absolute;
+  top: 100%; /* right below input */
+  left: 0;
+  width: 100%;
+  max-height: 250px; /* scrollable if too long */
+  overflow-y: auto;
+  z-index: 1000;
+  display: none; /* hidden by default */
+  border: 1px solid #ced4da;
+  border-top: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Each suggestion item */
+.suggestion-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #495057;
+}
+
+/* Hover effect */
+.suggestion-item:hover {
+  background-color: #198754; /* Bootstrap success color */
+  color: #fff;
+}
+
+/* Scrollbar styling */
+#suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+
+#suggestions::-webkit-scrollbar-thumb {
+  background-color: #198754;
+  border-radius: 3px;
+}
+
+#suggestions::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+form[role="search"] {
+  position: relative;
+}
+  #cartAlertBox {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1060;
+    max-width: 400px;
+    min-width: 320px;
+    pointer-events: none;
+  }
+   .suggestion-box {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  width: 300px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover,
+.active-suggestion {
+  background: #198754;
+  color: white;
+}
+
+
+</style>
+</head>
+<body>
+<div id="cartAlertBox"></div>
+
+  <div class="bg-light py-2 border-bottom">
+    <div class="container d-flex justify-content-center">
+      <form class="d-flex w-75" role="search" onsubmit="searchProduct(); return false;">
+        <input id="searchBox" class="form-control me-2" type="search" placeholder="Search products..." type="text">
+        <div id="suggestions" class="list-group" ></div>
+        <button class="btn btn-success" type="submit"><i class="fas fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+      <a style="font-size: 16px;" class="navbar-brand d-flex align-items-center" href="home.html">
+        <img style="margin-right: 1px;" src="/Images/logo.png" alt="Logo">
+        Wɪʟꜱᴏɴ Sᴘᴏʀᴛɪɴɢ Gᴏᴏᴅꜱ
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link " href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="Aboutus.html">About Us</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Brands</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="nike.html">Nike</a></li>
+              <li><a class="dropdown-item" href="spartan.html">Spartan</a></li>
+              <li><a class="dropdown-item" href="baden.html">Baden</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="comparision.html">Comparison</a></li>
+          <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#cartCanvas" data-bs-toggle="offcanvas"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+          <li class="nav-item"><a class="nav-link" href="loginregister.html"><i class="fa-solid fa-user-plus"></i> Register/Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas">
+  <div class="offcanvas-header bg-success text-white">
+    <h5 class="offcanvas-title"><i class="fas fa-shopping-cart"></i> My Cart</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div id="cart-items"></div>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <h5><strong>Total:</strong></h5>
+      <h5><strong><span id="cart-total">0.00</span> $</strong></h5>
+    </div>
+    <div class="mt-3 d-grid gap-2">
+      <button class="btn btn-success" onclick="checkout()">Checkout</button>
+      <button class="btn btn-outline-success" data-bs-dismiss="offcanvas">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+<!-- About Us Header -->
+<section class="about-header py-5 text-center">
+  <div class="container">
+    <h1 class="about-title">Wilson Sporting Goods: Excellence in Every Game</h1>
+    <p class="about-subtitle">For decades, we’ve been at the forefront of sports innovation and performance.</p>
+    <hr class="about-divider">
+  </div>
+</section>
+
+<!-- Our Story -->
+<section class="our-story-section py-5">
+  <div class="container">
+    <h2 class="section-title">Our Story</h2>
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4">
+        <img src="/Images/OUR.jpg" alt="Our Story" class="img-fluid rounded shadow">
+      </div>
+      <div class="col-lg-6">
+        <div class="story-content">
+          <p>Founded with a passion for sports and a commitment to excellence, <strong>Wilson Sporting Goods</strong> has been pushing the boundaries of performance for athletes worldwide. From local courts to international arenas, our mission is to provide high-quality gear that inspires confidence and elevates every game.</p>
+          <p>Over the years, we’ve combined innovation, durability, and style to create products that athletes not only trust but also love. Every bat, ball, and piece of equipment tells a story of dedication, precision, and the relentless pursuit of victory.</p>
+          <p>Join us on this journey, and experience the perfect fusion of performance and passion—because at Wilson, we don’t just sell sporting goods; we fuel dreams.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Timeline -->
+<section class="timeline-section py-5">
+  <div class="container">
+    <h2 class="section-title">Our Journey</h2>
+    <div class="timeline">
+      <div class="timeline-item slide-in">
+        <div class="timeline-icon"><i class="fas fa-flag"></i></div>
+        <div class="timeline-content">
+          <h4>2005 - Founded</h4>
+          <p>Wilson Sporting Goods was founded to provide high-quality sporting equipment for athletes of all levels.</p>
+        </div>
+      </div>
+      <div class="timeline-item slide-in">
+        <div class="timeline-icon"><i class="fas fa-trophy"></i></div>
+        <div class="timeline-content">
+          <h4>2010 - First Major Award</h4>
+          <p>Recognized for excellence in sports gear innovation and customer satisfaction.</p>
+        </div>
+      </div>
+      <div class="timeline-item slide-in">
+        <div class="timeline-icon"><i class="fas fa-globe"></i></div>
+        <div class="timeline-content">
+          <h4>2015 - Global Expansion</h4>
+          <p>Wilson Sporting Goods expanded globally, reaching markets in Europe, Asia, and the Americas.</p>
+        </div>
+      </div>
+      <div class="timeline-item slide-in">
+        <div class="timeline-icon"><i class="fas fa-star"></i></div>
+        <div class="timeline-content">
+          <h4>2020 - Innovation Awards</h4>
+          <p>Won multiple awards for cutting-edge sports gear and customer engagement programs.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<div class="container my-5">
+  <h2 class="section-title">Meet Our Team</h2>
+  <div class="row g-4">
+    <div class="col-md-3"><div class="team-member"><img src="/Images/g1.jpg" alt="CEO"><h5>Amima Chhipa</h5><p>CEO & Founder</p></div></div>
+    <div class="col-md-3"><div class="team-member"><img src="/Images/g2.jpg" alt="Marketing Head"><h5>Ayesha Ali</h5><p>Marketing Head</p></div></div>
+    <div class="col-md-3"><div class="team-member"><img src="/Images/b1.jpg" alt="Operations Head"><h5>Aun Muhammad</h5><p>Operations Head</p></div></div>
+    <div class="col-md-3"><div class="team-member"><img src="/Images/b2.jpg" alt="Product Head"><h5>Hassam Hafeez</h5><p>Product Head</p></div></div>
+  </div>
+</div>
+
+<section class="py-5 bg-light">
+  <div class="container">
+
+    <h2 class="section-title text-center mb-4">Share Your Experience</h2>
+    <div class="row justify-content-center">
+      <div class="col-lg-6">
+        <div class="card shadow-lg p-4">
+          <form id="feedbackForm">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" id="feedbackName" class="form-control" placeholder="Your name">
+              <div class="text-danger small" id="nameError"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="text" id="feedbackEmail" class="form-control" placeholder="Your email">
+              <div class="text-danger small" id="emailError"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Feedback</label>
+              <textarea id="feedbackMessage" rows="4" class="form-control" placeholder="Your feedback"></textarea>
+              <div class="text-danger small" id="messageError"></div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Rating</label>
+              <select id="feedbackRating" class="form-select">
+                <option value="">Select rating</option>
+                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                <option value="4">⭐⭐⭐⭐ Good</option>
+                <option value="3">⭐⭐⭐ Average</option>
+                <option value="2">⭐⭐ Poor</option>
+                <option value="1">⭐ Very Poor</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Submit Feedback</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Carousel (hidden initially) -->
+    <div id="testimonialSection" class="mt-5 d-none">
+      <h2 class="section-title text-center mb-4">What People Say</h2>
+      <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner" id="testimonialInner"></div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Footer -->
+<footer class="cus-footer text-white">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h4 class="fw-bold mb-3 d-flex align-items-center">
+            <img src="/Images/logo.png" alt="Logo" style="height: 40px; width: auto; margin-right: 10px;">
+            Wilson Sporting Goods
+          </h4>
+          <p>Pushing the limits of performance. From courts to fields, we fuel your passion for sports.</p>
+          <a href="loginregister.html" class="btn btn-light btn-sm mt-2 fw-bold">Join the Team</a>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="home.html" class="footer-link"><i class="fas fa-home me-2"></i>Home</a></li>
+            <li><a href="Aboutus.html" class="footer-link"><i class="fas fa-users me-2"></i>About Us</a></li>
+            <li class="dropdown">
+              <a href="#" class="footer-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-dumbbell me-2"></i>Brands</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="nike.html">Nike</a></li>
+                <li><a class="dropdown-item" href="spartan.html">Spartan</a></li>
+                <li><a class="dropdown-item" href="baden.html">Baden</a></li>
+              </ul>
+            </li>
+            <li><a href="comparision.html" class="footer-link"><i class="fas fa-balance-scale me-2"></i>Comparision</a></li>
+            <li><a href="contactus.html" class="footer-link"><i class="fas fa-envelope me-2"></i>Contact Us</a></li>
+          </ul>
+        </div>
+       <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="contactus.html#faq" class="footer-link"><i class="fas fa-question-circle me-2"></i>FAQ</a></li>
+            <li><a href="contactus.html#map1" class="footer-link"><i class="fas fa-shipping-fast me-2"></i>Store Locator</a></li>
+            <li><a href="contactus.html#contact" class="footer-link"><i class="fas fa-map-marker-alt me-2"></i>Contact Support</a></li>
+            <li><a href="loginregister.html" class="footer-link"><i class="fas fa-shield-alt me-2"></i>Product Registration</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Contact Info</h6>
+          <p><i class="fas fa-map-marker-alt me-2"></i>60 E Walton St, Chicago, IL 60611, United States</p>
+          <p><i class="fas fa-phone me-2"></i>+1 312-366-2336</p>
+          <p><i class="fas fa-envelope me-2"></i><a style="text-decoration: none;color: white;"  href="mailto:info@wilsonsportinggoods.com?subject=Inquiry&body=Hello Wilson Team,">info@wilsonsportinggoods.com</a></p>
+          <h6 class="fw-bold mb-3">Follow Us</h6>
+          <div class="d-flex">
+            <a href="https://www.facebook.com/share/1HcF7QNqLy/" target="_blank"  class="social-circle"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/wilsonjp1914" target="_blank" class="social-circle"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/wilson?igsh=dGs0Z2d4dXpib2lr" target="_blank" class="social-circle"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@wilsonsportinggoods?feature=shared" target="_blank" class="social-circle"><i class="fab fa-youtube"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="mb-0">© 2025 Wilson Sporting Goods. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  
+  <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</body>
+</html>
+<script>
+    function checkout() {
+  let cartItemsDiv = document.getElementById("cart-items");
+  let totalDiv = document.getElementById("cart-total");
+
+  let cartText = cartItemsDiv.innerText.trim();
+  let totalText = totalDiv.innerText.trim();
+
+  if (cartText !== "" && cartText !== "Your cart is empty") {
+    // ✅ Agar cart me items hain
+    showCartAlert("Thank you! Your checkout is successful.");
+
+    // cart clean karo aur "Your cart is empty" dikhado
+    cartItemsDiv.innerHTML = `<p class="text-center text-muted my-3">Your cart is empty</p>`;
+    totalDiv.innerHTML = "0.00";
+    cart = [];
+    updateCartCount(0);
+
+    // offcanvas close karo
+    let offcanvasEl = document.getElementById('cartCanvas');
+    let offcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+    if (offcanvas) {
+      offcanvas.hide();
+    }
+  } else {
+    // ❌ Agar cart empty hai
+    showCartError("Your cart is empty. Please add items before checkout.");
+  }
+}
+
+
+// Cart alert functions
+function showCartAlert(message) {
+  const alertBox = document.getElementById("cartAlertBox");
+
+  // Create alert div with enhanced styling
+  const alert = document.createElement("div");
+  alert.className = "cart-alert";
+  alert.innerHTML = `
+    <strong>✓ Success!</strong><br>
+    ${message}
+    <span class="close-btn" onclick="closeCartAlert(this)">&times;</span>
+  `;
+
+  // Append alert immediately
+  alertBox.appendChild(alert);
+
+  // Auto close after 3s with fast animation
+  setTimeout(() => {
+    if (alert && alert.parentElement) {
+      alert.style.animation = "fadeOut 0.2s ease-in";
+      setTimeout(() => {
+        if (alert.parentElement) {
+          alert.remove();
+        }
+      }, 200);
+    }
+  }, 3000);
+}
+
+function closeCartAlert(element) {
+  const alert = element.parentElement;
+  alert.style.animation = "fadeOut 0.2s ease-in";
+  setTimeout(() => {
+    if (alert.parentElement) {
+      alert.remove();
+    }
+  }, 200);
+}
+function showCartError(message) {
+  const alertBox = document.getElementById("cartAlertBox");
+
+  const alert = document.createElement("div");
+  alert.className = "cart-alert error";
+  alert.innerHTML = `
+    <strong>✕ Error!</strong><br>
+    ${message}
+    <span class="close-btn" onclick="closeCartAlert(this)">&times;</span>
+  `;
+
+  alertBox.appendChild(alert);
+
+  setTimeout(() => {
+    if (alert && alert.parentElement) {
+      alert.style.animation = "fadeOut 0.2s ease-in";
+      setTimeout(() => alert.remove(), 200);
+    }
+  }, 3000);
+}
+
+function closeCartAlert(element) {
+  const alert = element.parentElement;
+  alert.style.animation = "fadeOut 0.2s ease-in";
+  setTimeout(() => {
+    if (alert.parentElement) {
+      alert.remove();
+    }
+  }, 200);
+}
+
+document.getElementById("feedbackForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  let valid = true;
+
+  const name = document.getElementById("feedbackName").value.trim();
+  const email = document.getElementById("feedbackEmail").value.trim();
+  const message = document.getElementById("feedbackMessage").value.trim();
+  const rating = document.getElementById("feedbackRating").value;
+
+  // Regex validation
+  if (!/^[A-Za-z\s]{3,30}$/.test(name)) {
+    document.getElementById("nameError").innerText = "Enter a valid name (3-30 letters).";
+    valid = false;
+  } else document.getElementById("nameError").innerText = "";
+
+  if (!/^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/.test(email)) {
+    document.getElementById("emailError").innerText = "Enter a valid email.";
+    valid = false;
+  } else document.getElementById("emailError").innerText = "";
+
+  if (message.length < 10) {
+    document.getElementById("messageError").innerText = "Feedback must be at least 10 characters.";
+    valid = false;
+  } else document.getElementById("messageError").innerText = "";
+
+  if (!rating) {
+    alert("Please select a rating.");
+    valid = false;
+  }
+
+  if (valid) {
+    const section = document.getElementById("testimonialSection");
+    const inner = document.getElementById("testimonialInner");
+
+    // Show carousel when first testimonial is added
+    section.classList.remove("d-none");
+
+    // Create testimonial card
+    const testimonial = document.createElement("div");
+    testimonial.className = inner.children.length === 0 ? "carousel-item active" : "carousel-item";
+    testimonial.innerHTML = `
+      <div class="testimonial-card mx-auto" style="max-width:600px;">
+        <h5>${name}</h5>
+        <p class="text-muted">${email}</p>
+        <p>"${message}"</p>
+        <p>${"⭐".repeat(rating)}</p>
+      </div>
+    `;
+
+    inner.appendChild(testimonial);
+
+    document.getElementById("feedbackForm").reset();
+    alert("Thank you for your feedback!");
+  }
+});
+  
+  // Timeline Animation
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add("show"); } });
+  },{ threshold: 0.2 });
+  document.querySelectorAll(".slide-in").forEach(el => observer.observe(el));
+  let cart = [];
+  
+  if (cart.length === 0) {
+    document.getElementById('cart-items').innerHTML = ` <p class="text-center text-muted my-3">Your cart is empty</p> `;
+  }
+
+
+// ✅ All Products + Pages merged into one object
+// ✅ All Products + Pages
+const allProducts = {
+  // Nike
+  "air zoom pegasus 39": "AirZoomPegasus39",
+  "react infinity run flyknit": "ReactInfinityRunFlyknit",
+  "zoomx vaporfly next% 2": "ZoomXVaporflyNext2",
+  "zoom fly 4": "ZoomFly4",
+  "air zoom structure 24": "AirZoomStructure24",
+  "air zoom wildhorse 7": "AirZoomWildhorse7",
+  "nike pegasus trail 3": "NikePegasusTrail3",
+  "nike air zoom alphafly next% 2": "NikeAirZoomAlphaflyNext2",
+  "react miler 2": "ReactMiler2",
+  "air zoom vomero 16": "AirZoomVomero16",
+  "air zoom freak 4": "AirZoomFreak4",
+  "lebron 20": "LeBron20",
+  "dri-fit aerobill tailwind cap": "Dri-FITAerobillTailwindCap",
+  "pro combat hyperwarm hood": "ProCombatHyperwarmHood",
+  "swoosh headband": "SwooshHeadband",
+  "nike dri-fit legacy91 cap": "NikeDri-FITLegacy91Cap",
+  "brasilia training backpack extra large": "BrasiliaTrainingBackpack(ExtraLarge)",
+  "hayward 2.0 backpack": "Hayward2.0Backpack",
+  "gym club training duffel bag": "GymClubTrainingDuffelBag",
+  "nike varsity elite backpack": "NikeVarsityEliteBackpack",
+  "vapor grip 3 football gloves": "VaporGrip3FootballGloves",
+  "vapor jet 7football gloves": "VaporJet7FootballGloves",
+  "hyperwarm gloves": "HyperwarmGloves",
+  "nike therma-fit football liner gloves": "NikeThermaFITFootballLinerGloves",
+  "everyday cushioned crew socks (3-pack)": "EverydayCushionedCrewSocks3Pack",
+  "pro hyper strong compression arm sleeve": "ProHyperstrongCompressionArmSleeve",
+  "elite basketball crew socks (2-pack)": "EliteBasketballCrewSocks2Pack",
+  "nike elite 2.0 cushioned crew socks (1 pair)": "NikeElite20CushionedCrewSocks1Pair",
+  "training mat": "TrainingMat",
+  "agility training ladder": "AgilityTrainingLadder",
+  "nike speed rope": "NikeSpeedRope",
+  "sport water bottle (24 oz)": "SportWaterBottle24oz",
+
+  // Spartan
+  "boss players edition cb 151": "BossPlayersEditionCB151",
+  "shadow 1000 cb 115": "SHADOW1000CB115",
+  "fighter cb 107": "FighterCB107",
+  "t20 edition 3000 cb 113": "T20Edition3000CB113",
+  "t20 edition 2000 cb 112": "T20Edition2000CB112",
+  "t20 edition 1000 cb 111": "T20Edition1000CB111",
+  "shadow 4000 cb 118": "SHADOW4000CB118",
+  "shadow 3000 cb 117": "SHADOW3000CB117",
+  "spartan trigger": "SPARTANTRIGGER",
+  "spartan premier black & white": "SPARTANPREMIERBLACK&WHITE",
+  "spartan trainer hand stitched": "SPARTANTRAINERHANDSTITCHED",
+  "spartan super shine": "SPARTANSUPERSHINE",
+  "spartan pro select": "SPARTANPROSELECT",
+  "spartan extreme star pu": "SPARTANEXTREMESTARPU",
+  "spartan premier 18 p color": "SPARTANPREMIER18PCOLOR",
+  "spartan japanese 18 p tri colour": "SPARTANJAPANESE18PTRICOLOUR",
+  "spartan with wheels 35×14×14": "SPARTAWITHWHEELS35x14x14",
+  "spartan run back pack": "RUNBACKPACK",
+  "camo special (o) 38×14×11": "CAMOSPECIAL(O)38x14x11",
+  "camo back pack (o) 28×11×12": "CAMOBACKPACK(O)28x11x12",
+  "spartan limited edition keeping gloves": "LIMITEDEDITIONKEEPINGGLOVES",
+  "spartan eco gloves": "1ECOGLOVES",
+  "spartan special": "SPARTANSPECIAL",
+  "cg boss limited edition": "CGBOSSLIMITEDEDITION",
+  "spartan warrior": "SPARTANWARRIOR",
+  "spartan fighter": "SPARTANFIGHTER",
+  "spartan eco": "SPARTANECO",
+  "spartan bullet": "SPARTANBULLET",
+  "t20 special": "T20SPECIAL",
+  "run": "RUN",
+  "eco": "ECO",
+  "limited edition": "LIMITEDEDITION",
+
+  // Baden
+  "perfection elite game basketball": "PerfectionEliteGameBasketball",
+  "baden contender composite basketball": "BadenContenderCompositeBasketball",
+  "baden all star rubber basketball": "BadenAllStarRubberBasketball",
+  "baden legend 29.5": "BadenLegend29.5",
+  "baden rival game indoor basketball": "BadenRivalGameIndoorBasketball",
+  "pro32 basketball": "Pro32Basketball",
+  "skilcoach heavy trainer basketball": "SkilcoachHeavyTrainerBasketball",
+  "crossover basketball": "CrossoverBasketball",
+  "axe avenge pro 3 hybrid bbcor baseball": "AxeAvengePro3HybridBBCORBaseball",
+  "axe strato 2 bbcor baseball bat -3": "AxeStrato2BBCORBaseballBat3|StandardHandle",
+  "2022 Elite One Pro (-3) BBCOR Baseball" : "2022EliteOnePro(-3)BBCORBaseball",
+  "2023 Avenge Pro Hybrid FLARED (-3) BBCOR Baseball Bat" : "2023AvengeProHybridFLARED(-3)BBCORBaseballBat",
+  "baden perfection leather volleyball": "BadenPerfectionLeatherVolleyball",
+  "baden lexum composite volleyball": "BadenLexumCompositeVolleyball",
+  "baden Light / Microfiber Volleyball" : "BadenLight/MicrofiberVolleyball" ,
+  "baden Match Point Synthetic / Cushioned Volleyball" : "BadenMatchPointSynthetic/CushionedVolleyball" ,
+  "baden zseries soccer ball": "BadenZSeriesSoccerBall",
+  "baden Thermo NFHS Soccer Ball": "BadenThermoNFHSSoccerBall",
+  "baden Thermo Bonded Game Futsal Ball ST4LB": "BadenThermoBondedGameFutsalBallST4LB",
+  "baden Gold Trophy Series Promo Soccer Ball": "BadenGoldTrophySeriesPromoSoccerBall",
+  "baden champions volleyball set": "BadenChampionsVolleyballSet",
+  "baden kubb game set": "BadenKubbGameSet",
+  "baden Pro Volleyball Set":"BadenProVolleyballSet",
+  "baden deluxe croquet set": "BadenDeluxeCroquetSet",
+  "dink Pink 40 Pickleball 3-Pack": "DinkPink40Pickleball3Pack",
+  "Patriot 40 Pickleball 3-Pack": "Patriot40Pickleball3Pack",
+  "pro1 Pickleball 3-Pack": "PRO1Pickleball3Pack",
+  "baden rival 40 Pickleball 3-Pack": "Rival40Pickleball3Pack",
+  "limited Edition Bogey Boys Pickleball Paddle":"LimitedEditionBogeyBoysPickleballPaddle",
+  "perfection 3k pickleball paddle": "Perfection3kPickleballPaddle",
+  "battle point pickleball paddle": "BattlePointPickleballPaddle",
+  "youth pickleball paddle": "YouthPickleballPaddle",
+
+  // Pages
+  "nike": "nike.html",
+  "spartan": "spartan.html",
+  "baden": "baden.html",
+  "about us": "Aboutus.html",
+  "comparison": "comparision.html",
+  "home": "home.html",
+  "contact us": "contactus.html"
+};
+
+// ✅ Brand detection keywords
+// ✅ Brand detection keywords
+const brandMap = {
+  nike: [
+    "nike", "zoom", "pegasus", "flyknit", "react", "lebron", "vomero", "freak",
+    "hyperwarm", "swoosh", "duffel", "sock", "cap", "glove", "training",
+    "vapor", "speed", "pack"
+  ],
+  spartan: [
+    "spartan", "cb", "shadow", "t20", "eco", "fighter", "warrior", "boss",
+    "run", "bag", "shine", "camo", "special", "limited"
+  ],
+  baden: [
+    "baden", "basketball", "volleyball", "pickleball", "soccer", "baseball",
+    "bat", "ball", "croquet", "kubb", "thermo"
+  ]
+};
+
+// ✅ Normalize text for matching
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s]/g, " ") // remove symbols like %, ×, &, /
+    .replace(/\s+/g, " ") // collapse spaces
+    .trim();
+}
+
+// ✅ Detect brand from name or keywords
+function getBrandFromProductName(name) {
+  name = name.toLowerCase();
+
+  if (name.includes("spartan")) return "spartan";
+  if (name.includes("baden")) return "baden";
+  if (name.includes("nike")) return "nike";
+
+  // fallback brand detection
+  for (let brand in brandMap) {
+    if (brandMap[brand].some(k => name.includes(k))) {
+      return brand;
+    }
+  }
+  return null;
+}
+
+// ✅ Handle redirect
+function handleRedirect(productName) {
+  const productId = allProducts[productName];
+  if (!productId) return alert("Product not found in list!");
+
+  const brand = getBrandFromProductName(productName);
+  if (!brand) return alert(`Brand not recognized for: ${productName}`);
+
+  if (productId.endsWith(".html")) {
+    window.location.href = productId;
+  } else {
+    window.location.href = `${brand}.html#${productId}`;
+  }
+}
+
+// ✅ Smart Search Logic
+function searchProduct() {
+  const rawQuery = document.getElementById("searchBox").value.trim();
+  if (!rawQuery) return alert("Please enter a search term!");
+
+  const query = normalize(rawQuery);
+  const allKeys = Object.keys(allProducts);
+
+  // 1️⃣ Exact match
+  const exactMatch = allKeys.find(name => normalize(name) === query);
+  if (exactMatch) return handleRedirect(exactMatch);
+
+  // 2️⃣ Partial match
+  const partialMatch = allKeys.find(name => normalize(name).includes(query));
+  if (partialMatch) return handleRedirect(partialMatch);
+
+  // 3️⃣ Multi-word fallback
+  const queryWords = query.split(" ");
+  for (let name of allKeys) {
+    const normalized = normalize(name);
+    let matchCount = 0;
+    for (let word of queryWords) {
+      if (normalized.includes(word)) matchCount++;
+    }
+    if (matchCount >= Math.ceil(queryWords.length / 2)) {
+      return handleRedirect(name);
+    }
+  }
+
+  alert("Product or page not found!");
+}
+
+// ✅ Suggestion system (FULLY FIXED)
+const searchBox = document.getElementById("searchBox");
+const suggestionBox = document.getElementById("suggestions");
+let currentFocus = -1;
+
+searchBox.addEventListener("input", function() {
+  let query = normalize(this.value);
+  suggestionBox.innerHTML = "";
+  currentFocus = -1;
+
+  if (!query) {
+    suggestionBox.style.display = "none";
+    return;
+  }
+
+  const allKeys = Object.keys(allProducts);
+  // ✅ Improved matching: flexible & forgiving
+  let matches = allKeys.filter(item => {
+    const name = normalize(item);
+    // Must match at least one word
+    return query.split(" ").some(word => name.includes(word));
+  });
+
+  if (matches.length > 0) {
+    suggestionBox.style.display = "block";
+
+    // Sort by brand (optional but clean)
+    matches.sort((a, b) => {
+      const brandA = getBrandFromProductName(a) || "";
+      const brandB = getBrandFromProductName(b) || "";
+      return brandA.localeCompare(brandB);
+    });
+
+    matches.slice(0, 50).forEach(match => { // limit to avoid overflow
+      let div = document.createElement("div");
+      div.textContent = match;
+      div.classList.add("suggestion-item");
+      div.addEventListener("click", function() {
+        searchBox.value = match;
+        suggestionBox.innerHTML = "";
+        suggestionBox.style.display = "none";
+        searchProduct();
+      });
+      suggestionBox.appendChild(div);
+    });
+  } else {
+    suggestionBox.style.display = "none";
+  }
+});
+
+
+
+ searchBox.addEventListener("keydown", function(e) {
+   let items = suggestionBox.getElementsByClassName("suggestion-item");
+   if (!items.length) return;
+   if (e.key === "ArrowDown") {
+     currentFocus++;
+     addActive(items);
+   } else if (e.key === "ArrowUp") {
+     currentFocus--;
+     addActive(items);
+   } else if (e.key === "Enter") {
+     e.preventDefault();
+     if (currentFocus > -1 && items[currentFocus]) {
+       items[currentFocus].click();
+     } else {
+       searchProduct();
+     }
+   }
+ });
+
+ function addActive(items) {
+   if (!items) return false;
+   removeActive(items);
+   if (currentFocus >= items.length) currentFocus = 0;
+   if (currentFocus < 0) currentFocus = items.length - 1;
+   items[currentFocus].classList.add("active-suggestion");
+ }
+
+ function removeActive(items) {
+   for (let item of items) {
+     item.classList.remove("active-suggestion");
+   }
+ }
+
+  </script>
+  
+  

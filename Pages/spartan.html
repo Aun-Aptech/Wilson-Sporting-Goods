@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spartan Products</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/Images/logo.png">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto+Condensed:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Roboto Condensed', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .navbar-brand,
+    .nav-link {
+      color: #ffffff !important;
+      font-weight: 600;
+    }
+.navbar .nav-link.active {
+  color: #FFD700 !important;
+  border-bottom: 2px solid #FFD700;
+}
+.navbar .nav-link.active:hover
+   {
+    border: none;
+    color: #2E7D32 !important;
+   }
+
+.nav-link:hover {
+  background-color: #ffffff;   
+  color: #2E7D32 !important;  
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.7); 
+  border-radius: 20px;
+}
+
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+      margin-right: 10px;
+    }
+    .active-search {
+      border: 2px solid #28a745 !important;
+      box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+    }
+    .dropdown-menu {
+      background-color: #ffffff;   
+      border-radius: 10px;         
+      border: none;                
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    }
+    .dropdown-item {
+      color: #2E7D32;              
+      border-radius: 20px;         
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+    }
+    .dropdown-item:hover {
+      background-color: #2E7D32;   
+      color: #ffffff;              
+    }
+    .cus-footer {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+    }
+    .cus-footer .footer-top {
+      padding: 50px 0;
+    }
+    .footer-link {
+      color: #ffffff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: 0.3s;
+    }
+    .footer-link:hover {
+      color: #d4edda;
+      transform: translateX(5px);
+    }
+    .social-circle {
+      width: 36px;
+      height: 36px;
+      margin-right: 8px;
+      background: #ffffff;
+      color: #2E7D32;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+    .social-circle:hover {
+      background: #d4edda;
+      transform: scale(1.2);
+    }
+    .footer-bottom {
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    h1 { align-items:center; color:#1b5e20;font-weight: bold;justify-content: center;display: flex;margin-top: 30px; }
+    h1::before, h1::after {
+      content: "";
+      display: inline-block;
+      width: 200px;
+      height: 4px;
+      background-color: #1b5e20;
+      margin: 0 15px;
+      vertical-align: middle;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    h2 { align-items:center; color:#1b5e20; font-weight: bold; justify-content: center;display: flex;margin-top: 30px;}
+    h2::before, h2::after {
+      content: "";
+      display: inline-block;
+      width: 150px;
+      height: 4px;
+      background-color: #1b5e20;
+      margin: 0 15px;
+      vertical-align: middle;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+
+  .card {  
+    border:1px solid #4caf50; 
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  .card img{
+    height:280px;
+    object-fit: contain;
+    width: 100%;
+    padding: 10px;
+    transition: all 0.5s ease;
+  }
+  .card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+  .card img:hover {
+    transform: scale(1.05);
+  }
+  .card-title { 
+    color:#1b5e20; 
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .card-text { 
+    color:#2e7d32; 
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .btn-add { 
+    background-color:#388e3c; 
+    color:white; 
+    width:48%; 
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .btn-add:hover { 
+    background-color:#2e7d32; 
+    transform: translateY(-2px);
+  }
+    .z10 { 
+    background-color:#388e3c; 
+    color:white; 
+    width:auto; 
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .z10:hover { 
+    background-color:#2e7d32; 
+    transform: translateY(-2px);
+  }
+
+  .btn-details { 
+    border:1px solid #388e3c; 
+    color:#388e3c; 
+    width:48%; 
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .btn-details:hover { 
+    background-color:#c8e6c9; 
+    transform: translateY(-2px);
+  }
+  .downloadBtn {
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+
+
+
+/* Cart alert box container (fixed top center) */
+#cartAlertBox {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1060;
+  max-width: 400px;
+  min-width: 320px;
+  pointer-events: none;
+}
+
+/* Base alert */
+.cart-alert {
+  background: linear-gradient(135deg, #d1f7d6, #e8f7ea);
+  color: #155724;
+  border: none;
+  border-left: 5px solid #28a745;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+  animation: slideInCenter 0.2s ease-out;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.8);
+  overflow: hidden;
+  pointer-events: all;
+}
+
+/* Cart alert icon */
+.cart-alert::before {
+  content: "✓";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #28a745;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Adjust text to accommodate icon */
+.cart-alert {
+  padding-left: 50px;
+}
+
+/* Close button enhanced */
+.cart-alert .close-btn {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #28a745;
+  background: rgba(255,255,255,0.8);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.cart-alert .close-btn:hover {
+  background: rgba(255,255,255,1);
+  color: #155724;
+  transform: scale(1.1);
+}
+
+/* Enhanced animations */
+@keyframes slideInCenter {
+  from {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.9);
+  }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  #cartAlertBox {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    transform: none;
+    max-width: none;
+    min-width: auto;
+  }
+  
+  .cart-alert {
+    font-size: 13px;
+    padding: 14px 18px;
+    padding-left: 45px;
+  }
+  
+  .cart-alert .close-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 16px;
+  }
+}
+
+
+.productImg { max-height: 250px; object-fit: cover; }
+.cart-count { font-size: 0.8rem; background: red; color: white; padding: 2px 6px; border-radius: 50%; position: absolute; top: 0; right: 0; }
+.cart-item { border-bottom: 1px solid #ddd; padding: 8px 0; display: flex; justify-content: space-between; align-items: center; }
+.cart-alert.error {
+  background: linear-gradient(135deg, #f8d7da, #fce8ea);
+  color: #721c24;
+  border-left: 5px solid #dc3545;
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cart-alert.error::before {
+  content: "✕";
+  background: #dc3545;
+}
+
+.cart-alert.error .close-btn {
+  color: #dc3545;
+}
+
+.cart-alert.error .close-btn:hover {
+  color: #721c24;
+}
+.cart-count-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #dc3545;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: none; /* default hidden */
+}
+#suggestions {
+  position: absolute;
+  top: 100%; /* right below input */
+  left: 0;
+  width: 100%;
+  max-height: 250px; /* scrollable if too long */
+  overflow-y: auto;
+  z-index: 1000;
+  display: none; /* hidden by default */
+  border: 1px solid #ced4da;
+  border-top: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Each suggestion item */
+.suggestion-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #495057;
+}
+
+/* Hover effect */
+.suggestion-item:hover {
+  background-color: #198754; /* Bootstrap success color */
+  color: #fff;
+}
+
+/* Scrollbar styling */
+#suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+
+#suggestions::-webkit-scrollbar-thumb {
+  background-color: #198754;
+  border-radius: 3px;
+}
+
+#suggestions::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+form[role="search"] {
+  position: relative;
+}
+/* --- Simple styling --- */
+ .suggestion-box {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  width: 300px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover,
+.active-suggestion {
+  background: #198754;
+  color: white;
+}
+
+</style>
+</head>
+<body>
+
+<!-- Cart Alert Container -->
+<div id="cartAlertBox"></div>
+
+<div class="bg-light py-2 border-bottom">
+  <div class="container d-flex justify-content-center">
+    <form class="d-flex w-75" role="search" onsubmit="searchProduct(); return false;">
+      <input class="form-control me-2" type="text" placeholder="Search products..." id="searchBox">
+      <div id="suggestions" class="list-group" ></div>
+      <button class="btn btn-success" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a style="font-size: 16px;" class="navbar-brand d-flex align-items-center" href="home.html">
+      <img style="margin-right: 1px;" src="../Images/logo.png" alt="Logo">
+      Wɪʟꜱᴏɴ Sᴘᴏʀᴛɪɴɢ Gᴏᴏᴅꜱ
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link " href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link " href="Aboutus.html">About Us</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" href="#" data-bs-toggle="dropdown">Brands</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="nike.html">Nike</a></li>
+            <li><a class="dropdown-item" href="spartan.html">Spartan</a></li>
+            <li><a class="dropdown-item" href="baden.html">Baden</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link "  href="comparision.html">Comparision</a></li>
+        <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#cartCanvas" data-bs-toggle="offcanvas"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        <li class="nav-item"><a class="nav-link" href="loginregister.html"><i class="fa-solid fa-user-plus"></i> Register/Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas">
+  <div class="offcanvas-header bg-success text-white">
+    <h5 class="offcanvas-title"><i class="fas fa-shopping-cart"></i> My Cart</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div id="cart-items"></div>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <h5><strong>Total:</strong></h5>
+      <h5><strong><span id="cart-total">0</span> $</strong></h5>
+    </div>
+    <div class="mt-3 d-grid gap-2">
+      <button class="btn btn-success" type="button" onclick="checkout()">Checkout</button>
+      <button class="btn btn-outline-success" data-bs-dismiss="offcanvas">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="container">
+  <h1>Products Catalog</h1>
+
+  <div class="row g-4 ">
+    <!-- Product Card Example -->
+     <h2>English Willow
+</h2>
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="BossPlayersEditionCB151" >
+        <img src="../spartan_images/1.png" data-alt="../spartan_images/1(1).png" class="card-img-top product-img" >
+        <div class="card-body d-flex flex-column" >
+          <h5 class="card-title">Boss Players Edition CB 151
+</h5>
+          <p class="card-text">Price: $69</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal1">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<div class="modal fade product-modal" id="modal1" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/1.png" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">Boss Players Edition CB 151
+</h4>
+            <p class="text-muted productPrice">Price: $69
+</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A top-grade English willow cricket bat with a treble spring cane handle, slight bow, curved face, thick edges, and engineered for stability.            </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SHADOW1000CB115">
+          <img src="../spartan_images/2.png" data-alt="../spartan_images/2(2).png" class="card-img-top product-img" alt="Air Force 1">        
+          <div class="card-body d-flex flex-column">
+          <h5 class="card-title ">SHADOW 1000 CB 115
+</h5>
+          <p class="card-text">Price: $50</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal2">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal2" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/2.png" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8 " id="">
+            <h4 class="productName">SHADOW 1000 CB 115
+</h4>
+            <p class="text-muted productPrice">Price: $50</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A Grade-1 English willow cricket bat with slight bow, thick edges, treble spring cane handle, and a curved face for power and stability.         </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="FighterCB107">
+        <img src="../spartan_images/3.png" data-alt="/spartan_images/3(3).png" class="card-img-top product-img" alt="Air Zoom Pegasus 39">
+        <div class="card-body d-flex flex-column" >
+          <h5 class="card-title">Fighter CB 107
+</h5>
+          <p class="card-text">Price: $20</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal3">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal3" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/3.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">Fighter CB 107
+</h4>
+            <p class="text-muted productPrice">Price: $20</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A mid-profile English willow cricket bat from Spartan’s “Fighter” line, designed for balanced stroke play and durability.
+</p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Repeat Product Cards similarly for other products -->
+    <!-- Example: Air Force 1 -->
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="T20Edition3000CB113">
+        <img src="../spartan_images/4.png" data-alt="../spartan_images/4(4).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">T20 Edition3000 CB 113
+
+    </h5>
+          <p class="card-text">Price: $33</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal4">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal4" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/4.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">T20 Edition3000 CB 113
+</h4>
+            <p class="text-muted productPrice">Price: $33</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              a cricket bat offered by Spartan Sports, designed for players seeking a balance between power and control.
+</p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="T20Edition2000CB112">
+        <img src="../spartan_images/5.png" data-alt="../spartan_images/5(5).png" class="card-img-top product-img" alt="Air Zoom Pegasus 39">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title"> T20 Edition 2000 CB 112
+</h5>
+          <p class="card-text">Price: $35</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal5">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="/spartan_images/5.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">T20 Edition 2000 CB 112
+</h4>
+            <p class="text-muted productPrice">Price:  $35</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A hand-crafted English willow bat from Spartan’s T20 line, built for balance and power with curved face, thick edges, and treble cane handle.          </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Repeat Product Cards similarly for other products -->
+    <!-- Example: Air Force 1 -->
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="T20Edition1000CB111">
+        <img src="../spartan_images/6.png" data-alt="/spartan_images/6(6).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">T20 Edition 1000 CB 111
+
+</h5>
+          <p class="card-text">Price: $50</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal6">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal6" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/6.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">T20 Edition 1000 CB 111
+
+</h4>
+            <p class="text-muted productPrice">Price: $50</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A Grade-1 English willow bat from Spartan’s T20 series, offering a blend of lightweight agility and powerful stroke potential.
+</p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="col-lg-3 col-md-4  col-6">
+      <div class="card h-100" id="SHADOW4000CB118">
+        <img src="../spartan_images/7.png" data-alt="/spartan_images/7(7).png" class="card-img-top product-img" alt="Air Zoom Pegasus 39">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SHADOW 4000 CB 118
+
+</h5>
+          <p class="card-text">Price: $21</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal7">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal7" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/7.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SHADOW 4000 CB 118
+
+</h4>
+            <p class="text-muted productPrice">Price: $21</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A grade-3 English willow cricket bat with a slight bow, thick edges, curved face, treble cane handle, and slightly square toe, built for stability.</p>
+             <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Repeat Product Cards similarly for other products -->
+    <!-- Example: Air Force 1 -->
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SHADOW3000CB117">
+        <img src="../spartan_images/8.png" data-alt="../spartan_images/8(8).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SHADOW 3000 CB 117
+
+</h5>
+          <p class="card-text">Price: $33</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal8">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal8" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/8.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SHADOW 3000 CB 117
+
+</h4>
+            <p class="text-muted productPrice">Price: $33</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A Grade-2 English willow cricket bat with slight bow, curved face, thick edges, and a cane handle built for balanced power and control. </p>           
+             <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+     <h2 style="margin-top: 20px;">FootBall
+</h2>
+
+    <div class="col-lg-3 col-md-4  col-6">
+      <div class="card h-100" id="SPARTANTRIGGER">
+        <img src="../spartan_images/9.png" data-alt="../spartan_images/9(9).png" class="card-img-top product-img" alt="Air Zoom Pegasus 39">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN TRIGGER
+
+          </h5>
+          <p class="card-text">Price: $15</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal30">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal30" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="/spartan_images/9.png"alt="productImg"class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN TRIGGER
+
+</h4>
+            <p class="text-muted productPrice">Price: $15</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              A hand-sewn polyurethane (PU) football with a latex bladder, built for durability, shape retention, and consistent performance at low temperatures.
+</p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Repeat Product Cards similarly for other products -->
+    <!-- Example: Air Force 1 -->
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTANPREMIERBLACK&WHITE">
+        <img src="../spartan_images/10.png"  data-alt="/spartan_images/10(10).png"class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN PREMIER BLACK & WHITE
+
+</h5>
+          <p class="card-text">Price:  $10</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal9">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal9" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="/spartan_images/10.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN PREMIER BLACK & WHITE
+
+</h4>
+            <p class="text-muted productPrice">Price: $10</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A synthetic, hand-sewn 32-panel black & white football with abrasion-resistant top cover for durability and shape retention even in low temperatures.
+            </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTANTRAINERHANDSTITCHED">
+        <img src="../spartan_images/11.png" data-alt="/spartan_images/11(11).png" class="card-img-top product-img" alt="Air Zoom Pegasus 39">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN TRAINER HAND STITCHED
+
+</h5>
+          <p class="card-text">Price: $9.59</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal10">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal10" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="/spartan_images/11.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN TRAINER HAND STITCHED
+
+</h4>
+            <p class="text-muted productPrice">Price: $9.59</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A size-5, 32-panel hand-stitched synthetic football with abrasion-resistant top cover and latex bladder, made to retain shape and performance even in cooler or wet conditions.
+            </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Repeat Product Cards similarly for other products -->
+    <!-- Example: Air Force 1 -->
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTANSUPERSHINE">
+        <img src="../spartan_images/12.png" data-alt="/spartan_images/12(12).png" class="card-img-top product-img" alt="Air Zoom Pegasus 39">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN SUPER SHINE
+
+</h5>
+          <p class="card-text">Price: $13.42</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal12">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal12" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/12.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN SUPER SHINE
+
+</h4>
+            <p class="text-muted productPrice">Price: $13.42</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A synthetic, hand-sewn 32-panel football with a special abrasion-resistant top cover and latex bladder, designed for excellent shape retention and performance even in low temperatures.</p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+     <h2 style="margin-top: 20px;">Volleyballs</h2>
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTANPROSELECT">
+        <img src="../spartan_images/13.png" data-alt="../spartan_images/13(13).png" class="card-img-top product-img" alt="Air Zoom Pegasus 39">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN PRO SELECT
+</h5>
+          <p class="card-text">Price: $19.06</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal13">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal13" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/13.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN PRO SELECT
+</h4>
+            <p class="text-muted productPrice">Price: $19.06</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A genuine leather match volleyball with butyl bladder, approved by VFI, engineered for true flight and strong air retention.            </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Repeat Product Cards similarly for other products -->
+    <!-- Example: Air Force 1 -->
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTANEXTREMESTARPU">
+        <img src="../spartan_images/14.png" data-alt="../spartan_images/14(14).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN EXTREME STAR PU
+</h5>
+          <p class="card-text">Price: $9.59</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal14">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+<div class="modal fade product-modal" id="modal14" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/14.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN EXTREME STAR PU
+</h4>
+            <p class="text-muted productPrice">Price: $9.59</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+18-panel hand-sewn PU football with a latex bladder and inner polyester-cotton layers for shape retention and less moisture absorption
+</p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTANPREMIER18PCOLOR">
+        <img src="../spartan_images/15.png" data-alt="../spartan_images/15(15).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN PREMIER 18 P COLOR
+</h5>
+          <p class="card-text">Price: $8.57</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal15">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal15" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/15.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN PREMIER 18 P COLOR
+</h4>
+            <p class="text-muted productPrice">Price: $8.57</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+A hand-stitched 18-panel multi-color synthetic football with a PU top cover and latex bladder, built for durability and bright field visibility.</p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTANJAPANESE18PTRICOLOUR">
+        <img src="../spartan_images/16.png" data-alt="../spartan_images/16(16).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN JAPANESE 18 P TRI COLOUR
+</h5>
+          <p class="card-text">Price: $8.91</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal200">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal200" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/16.png" alt="productImg" class="productImg  img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN JAPANESE 18 P TRI COLOUR
+</h4>
+            <p class="text-muted productPrice">Price: $8.91</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+Premium 18-panel Japanese leather cricket ball with a unique tri-colour design for durability and style.         </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    <!-- Repeat Product Cards similarly for other products -->
+    <!-- Example: Air Force 1 -->
+          <h2 style="margin-top: 20px;">Bags</h2>
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTAWITHWHEELS35x14x14">
+        <img src="../spartan_images/17.png" data-alt="../spartan_images/17(17).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN WITH WHEELS 35" x 14" x 14"</h5>
+          <p class="card-text">Price:  $25.04</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal16">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal16" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../baden_images/17.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN WITH WHEELS 35" x 14" x 14"</h4>
+            <p class="text-muted productPrice">Price: $25.04</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+Recreational series, good for everyday play        </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="RUNBACKPACK">
+        <img src="../spartan_images/18.png" data-alt="../spartan_images/18(18).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body  d-flex flex-column">
+          <h5 class="card-title">RUN BACK PACK</h5>
+          <p class="card-text">Price: $10.15</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal17">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal17" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/18.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">RUN BACK PACK</h4>
+            <p class="text-muted productPrice">Price: $10.15</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              sleek, durable, and built for motion.     </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Repeat Product Cards similarly for other products -->
+    <!-- Example: Air Force 1 -->
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="CAMOSPECIAL(O)38x14x11">
+        <img src="../spartan_images/19.png" data-alt="../spartan_images/19(19).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">CAMO SPECIAL( O) 38" x 14" x 11"</h5>
+          <p class="card-text">Price: $33.84</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal18">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal18" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/19.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">CAMO SPECIAL( O) 38" x 14" x 11"</h4>
+            <p class="text-muted productPrice">Price: $33.84</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              stealthy stance with commanding width.</p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+        <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="CAMOBACKPACK(O)28x11x12">
+        <img src="../spartan_images/20.png" data-alt="/spartan_images/20(20).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">CAMO BACK PACK (O) 28" x 11" x 12"</h5>
+          <p class="card-text">Price: $23.69</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal199">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal199" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/20.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">CAMO BACK PACK (O) 28" x 11" x 12"</h4>
+            <p class="text-muted productPrice">Price: $23.69</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              rugged design with tactical edge        </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <h2 style="margin-top: 20px;">BackYard Games</h2>
+
+<div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="LIMITEDEDITIONKEEPINGGLOVES"> 
+        <img src="../spartan_images/21.png" data-alt="/spartan_images/21(21).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">LIMITED EDITION KEEPING GLOVES</h5>
+          <p class="card-text">Price: $43.99</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add" >Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal19">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal19" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/21.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">LIMITED EDITION KEEPING GLOVES</h4>
+            <p class="text-muted productPrice">Price: $43.99</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              precision grip, elite protection, crafted for game-changers.        </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="1ECOGLOVES">
+        <img src="../spartan_images/22.png" data-alt="/spartan_images/22(22).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">ECO GLOVES</h5>
+          <p class="card-text">Price: $14.10</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add" >Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal20">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal20" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/22.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">ECO GLOVES</h4>
+            <p class="text-muted productPrice">Price: $14.10</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              clean, minimal, and built for sustainable performance.       </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+   
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTANSPECIAL">
+        <img src="../spartan_images/23.png" data-alt="/spartan_images/23(23).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN SPECIAL</h5>
+          <p class="card-text">Price: $41.73</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal21">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal21" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/23.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN SPECIAL</h4>
+            <p class="text-muted productPrice">Price: $41.73</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              rugged, bold, and built for battle-ready performance.          </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="CGBOSSLIMITEDEDITION">
+        <img src="../spartan_images/24.png" data-alt="../spartan_images/24(24).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">CG BOSS LIMITED EDITION</h5>
+          <p class="card-text">Price: $46.24</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal198">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal198" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/24.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">CG BOSS LIMITED EDITION</h4>
+            <p class="text-muted productPrice">Price: $46.24</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              commanding style, elite performance, crafted for the ultimate standout.</p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <h2 style="margin-top: 20px;">CRICKET HELMETS
+      </h2>
+
+<div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTANWARRIOR">
+        <img src="../spartan_images/25.png" data-alt="../spartan_images/25(25).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN WARRIOR
+
+</h5>
+          <p class="card-text">Price:  $27.41</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal22">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal22" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/25.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN WARRIOR
+            </h4>
+            <p class="text-muted productPrice">Price: $27.41</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              fierce design, unstoppable strength, forged for victory.          </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100"  id="SPARTANFIGHTER">
+        <img src="../spartan_images/26.png" data-alt="/spartan_images/26(26).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN FIGHTER
+
+</h5>
+          <p class="card-text">Price: $18.27</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal24">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal24" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/26.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN FIGHTER
+
+</h4>
+            <p class="text-muted productPrice">Price: $18.27</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              tough, relentless, engineered to conquer every challenge.    </p>   
+                   <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100"  id="SPARTANECO">
+        <img src="../spartan_images/27.png" data-alt="/spartan_images/27(27).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN ECO
+</h5>
+          <p class="card-text">Price: $11.05</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal23">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade product-modal" id="modal23" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/27.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN ECO
+</h4>
+            <p class="text-muted productPrice">Price: $11.05</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              tough, relentless, engineered to conquer every challenge.
+            </p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="col-lg-3 col-md-4 col-6">
+      <div class="card h-100" id="SPARTANBULLET">
+        <img src="../spartan_images/28.png" data-alt="/spartan_images/28(28).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">SPARTAN BULLET
+          </h5>
+          <p class="card-text">Price: $24.79</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal197">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal197" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/28.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">SPARTAN BULLET
+            </h4>
+            <p class="text-muted productPrice">Price:  $24.79</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              sleek, fast, and built for precision impact.
+</p>
+            <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <h2 style="margin-top: 20px;">Batting Pads
+      </h2>
+
+
+    <div class="col-lg-3 col-md-4 col-6 mb-4">
+      <div class="card h-100" id="T20SPECIAL">
+        <img src="../spartan_images/29.png" data-alt="/spartan_images/29(29).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title"> T20 SPECIAL
+</h5>
+          <p class="card-text">Price: $50.98</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal25">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal25" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/29.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4  class="productName">T20 SPECIAL
+</h4>
+            <p class="text-muted productPrice">Price: $50.98</p>
+            <h5>Description</h5>
+            <p class="productDesc">
+              precision-engineered, high-performance, built to dominate the game
+            </p>
+                               <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="col-lg-3 col-md-4 col-6 mb-4">
+      <div class="card h-100" id="RUN">
+        <img src="../spartan_images/30.png " data-alt="/spartan_images/30(30).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">RUN
+</h5>
+          <p class="card-text">Price: $16.92</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal26">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal26" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/30.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">RUN
+</h4>
+            <p class="text-muted productPrice">Price: $16.92</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              streamlined for speed, built for those who never stop moving.      </p>
+                    <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="col-lg-3 col-md-4 col-6 mb-4">
+      <div class="card h-100" id="ECO">
+        <img src="../spartan_images/31.png" data-alt="/spartan_images/31(31).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">ECO
+</h5>
+          <p class="card-text">Price: $13.51</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add ">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal27">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal27" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/31.png" alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">ECO
+</h4>
+            <p class="text-muted productPrice">Price: $13.51</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              minimal impact, maximum efficiency, designed for a sustainable edge.
+            </p>
+                        <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="col-lg-3 col-md-4 col-6 mb-4">
+      <div class="card h-100" id="LIMITEDEDITION">
+        <img src="../spartan_images/32.png" data-alt="/spartan_images/32(32).png" class="card-img-top product-img" alt="Air Force 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">LIMITED EDITION
+</h5>
+          <p class="card-text">Price: $49.99</p>
+          <div class="d-flex justify-content-between mt-auto">
+            <button class="btn btn-add">Add to Cart</button>
+            <button class="btn btn-details" data-bs-toggle="modal" data-bs-target="#modal28">Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="modal fade product-modal" id="modal28" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="productContent">     
+      <div class="modal-header">
+        <h5 class="modal-title" id="productModalLabel">Product Detail</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-4 text-center">
+            <img src="../spartan_images/32.png"  alt="productImg" class="productImg img-fluid" style="max-height:250px; object-fit:cover;">
+          </div>
+          <div class="col-md-8">
+            <h4 class="productName">LIMITED EDITION
+</h4>
+            <p class="text-muted productPrice">Price: $49.99</p>
+            <h5 >Description</h5>
+            <p class="productDesc">
+              exclusive design, premium quality, made for the discerning few.
+            </p>
+                        <button class="btn btn-add z10" >Add to Cart</button>
+            <button type="button" class="btn btn-outline-primary downloadBtn">Download</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+       
+  </div>
+</div>
+
+
+
+
+<!-- Footer -->
+<footer class="cus-footer text-white">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h4 class="fw-bold mb-3 d-flex align-items-center">
+            <img src="/Images/logo.png" alt="Logo" style="height: 40px; width: auto; margin-right: 10px;">
+            Wilson Sporting Goods
+          </h4>
+          <p>Pushing the limits of performance. From courts to fields, we fuel your passion for sports.</p>
+          <a href="loginregister.html" class="btn btn-light btn-sm mt-2 fw-bold">Join the Team</a>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="home.html" class="footer-link"><i class="fas fa-home me-2"></i>Home</a></li>
+            <li><a href="Aboutus.html" class="footer-link"><i class="fas fa-users me-2"></i>About Us</a></li>
+              <a href="#" class="footer-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-dumbbell me-2"></i>Brands</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="nike.html">Nike</a></li>
+                <li><a class="dropdown-item" href="spartan.html">Spartan</a></li>
+                <li><a class="dropdown-item" href="baden.html">Baden</a></li>
+              </ul>
+            </li>
+            <li><a href="comparision.html" class="footer-link"><i class="fas fa-balance-scale me-2"></i>Comparision</a></li>
+            <li><a href="contactus.html" class="footer-link"><i class="fas fa-envelope me-2"></i>Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="contactus.html#faq" class="footer-link"><i class="fas fa-question-circle me-2"></i>FAQ</a></li>
+            <li><a href="contactus.html#map1" class="footer-link"><i class="fas fa-shipping-fast me-2"></i>Store Locator</a></li>
+            <li><a href="contactus.html#contact" class="footer-link"><i class="fas fa-map-marker-alt me-2"></i>Contact Support</a></li>
+            <li><a href="loginregister.html" class="footer-link"><i class="fas fa-shield-alt me-2"></i>Product Registration</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Contact Info</h6>
+          <p><i class="fas fa-map-marker-alt me-2"></i>60 E Walton St, Chicago, IL 60611, United States</p>
+          <p><i class="fas fa-phone me-2"></i>+1 312-366-2336</p>
+          <p><i class="fas fa-envelope me-2"></i><a style="text-decoration: none;color: white;"  href="mailto:info@wilsonsportinggoods.com?subject=Inquiry&body=Hello Wilson Team,">info@wilsonsportinggoods.com</a></p>
+          <h6 class="fw-bold mb-3">Follow Us</h6>
+          <div class="d-flex">
+            <a href="https://www.facebook.com/share/1HcF7QNqLy/" target="_blank"  class="social-circle"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/wilsonjp1914" target="_blank" class="social-circle"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/wilson?igsh=dGs0Z2d4dXpib2lr" target="_blank" class="social-circle"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@wilsonsportinggoods?feature=shared" target="_blank" class="social-circle"><i class="fab fa-youtube"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="mb-0">© 2025 Wilson Sporting Goods. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+
+<script>
+
+// Cart functionality
+let cart = [];
+const cartItems = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+
+// Add event listeners to all "Add to Cart" buttons
+document.addEventListener('DOMContentLoaded', function() {
+  const addButtons = document.querySelectorAll('.btn-add');
+  
+  addButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const card = this.closest('.card');
+      const productName = card.querySelector('.card-title').textContent;
+      const priceText = card.querySelector('.card-text').textContent;
+      const price = parseFloat(priceText.replace('Price: $', ''));
+      const imgSrc = card.querySelector('.product-img').getAttribute('src');
+      
+      addToCart(productName, price, imgSrc);
+    });
+  });
+
+  // Add event listeners to modal "Add to Cart" buttons
+  const modalAddButtons = document.querySelectorAll('.modal-body .btn-add');
+  modalAddButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const modal = this.closest('.modal-content');
+      const productName = modal.querySelector('.productName').textContent;
+      const priceText = modal.querySelector('.productPrice').textContent;
+      const price = parseFloat(priceText.replace('Price: $', ''));
+      const imgSrc = modal.querySelector('.productImg').getAttribute('src');
+      
+      addToCart(productName, price, imgSrc);
+    });
+  });
+
+  // Image hover effect
+  const productImages = document.querySelectorAll('.product-img');
+  productImages.forEach(img => {
+    const originalSrc = img.getAttribute('src');
+    const hoverSrc = img.getAttribute('data-alt');
+    
+    img.addEventListener('mouseenter', function() {
+      if (hoverSrc) {
+        img.setAttribute('src', hoverSrc);
+      }
+    });
+    
+    img.addEventListener('mouseleave', function() {
+      img.setAttribute('src', originalSrc);
+    });
+  });
+});
+
+function addToCart(name, price, imgSrc) {
+  // Check if product already exists in cart
+  const existingItem = cart.find(item => item.name === name);
+  
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({
+      name: name,
+      price: price,
+      quantity: 1,
+      imgSrc: imgSrc
+    });
+  }
+  
+  // Show cart alert for all additions
+  showCartAlert(`${name} added to cart!`);
+  updateCartDisplay();
+}
+  
+
+function updateCartDisplay() {
+  cartItems.innerHTML = '';
+  let total = 0;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = `
+      <p class="text-center text-muted my-3">Your cart is empty</p>
+    `;
+    cartTotal.textContent = '0.00';
+
+    // Always update badge → 0
+    updateCartCount(0);
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+
+    const cartItemDiv = document.createElement('div');
+    cartItemDiv.className = 'cart-item d-flex justify-content-between align-items-center mb-2';
+    cartItemDiv.innerHTML = `
+      <div class="d-flex align-items-center">
+        <img src="${item.imgSrc}" alt="${item.name}" 
+             style="width: 50px; height: 50px; object-fit: contain; margin-right: 10px;">
+        <div>
+          <p class="mb-0"><strong>${item.name}</strong></p>
+          <p class="mb-0">$${item.price} x ${item.quantity}</p>
+        </div>
+      </div>
+      <div>
+        <span class="text-success">$${itemTotal.toFixed(2)}</span>
+        <button class="btn btn-sm btn-danger ms-2" onclick="removeFromCart(${index})">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    `;
+    cartItems.appendChild(cartItemDiv);
+  });
+
+  cartTotal.textContent = total.toFixed(2);
+
+  // ✅ Always update badge with current total items
+  updateCartCount(cart.reduce((sum, item) => sum + item.quantity, 0));
+}
+function removeFromCart(index) {
+  // Remove the item at given index
+  cart.splice(index, 1);
+
+  // Refresh cart display & badge
+  updateCartDisplay();
+
+  // Show alert
+  showCartAlert("Item removed from cart!");
+}
+
+function checkout() {
+  let cartItemsDiv = document.getElementById("cart-items");
+  let totalDiv = document.getElementById("cart-total");
+
+  let cartText = cartItemsDiv.innerText.trim();
+  let totalText = totalDiv.innerText.trim();
+
+  if (cartText !== "" && cartText !== "Your cart is empty") {
+    // ✅ Agar cart me items hain
+    showCartAlert("Thank you! Your checkout is successful.");
+
+    // cart clean karo aur "Your cart is empty" dikhado
+    cartItemsDiv.innerHTML = `<p class="text-center text-muted my-3">Your cart is empty</p>`;
+    totalDiv.innerHTML = "0.00";
+    cart = [];
+    updateCartCount(0);
+
+    // offcanvas close karo
+    let offcanvasEl = document.getElementById('cartCanvas');
+    let offcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+    if (offcanvas) {
+    offcanvas.hide();
+    }
+  } else {
+    // ❌ Agar cart empty hai
+    showCartError("Your cart is empty. Please add items before checkout.");
+  }
+}
+
+
+// Cart alert functions
+function showCartAlert(message) {
+  const alertBox = document.getElementById("cartAlertBox");
+
+  // Create alert div with enhanced styling
+  const alert = document.createElement("div");
+  alert.className = "cart-alert";
+  alert.innerHTML = `
+    <strong>✓ Success!</strong><br>
+    ${message}
+    <span class="close-btn" onclick="closeCartAlert(this)">&times;</span>
+  `;
+
+  // Append alert immediately
+  alertBox.appendChild(alert);
+
+  // Auto close after 3s with fast animation
+  setTimeout(() => {
+    if (alert && alert.parentElement) {
+      alert.style.animation = "fadeOut 0.2s ease-in";
+      setTimeout(() => {
+        if (alert.parentElement) {
+          alert.remove();
+        }
+      }, 200);
+    }
+  }, 3000);
+}
+
+function closeCartAlert(element) {
+  const alert = element.parentElement;
+  alert.style.animation = "fadeOut 0.2s ease-in";
+  setTimeout(() => {
+    if (alert.parentElement) {
+      alert.remove();
+    }
+  }, 200);
+}
+function showCartError(message) {
+  const alertBox = document.getElementById("cartAlertBox");
+
+  const alert = document.createElement("div");
+  alert.className = "cart-alert error";
+  alert.innerHTML = `
+    <strong>✕ Error!</strong><br>
+    ${message}
+    <span class="close-btn" onclick="closeCartAlert(this)">&times;</span>
+  `;
+
+  alertBox.appendChild(alert);
+
+  setTimeout(() => {
+    if (alert && alert.parentElement) {
+      alert.style.animation = "fadeOut 0.2s ease-in";
+      setTimeout(() => alert.remove(), 200);
+    }
+  }, 3000);
+}
+
+function closeCartAlert(element) {
+  const alert = element.parentElement;
+  alert.style.animation = "fadeOut 0.2s ease-in";
+  setTimeout(() => {
+    if (alert.parentElement) {
+      alert.remove();
+    }
+  }, 200);
+}
+document.addEventListener("DOMContentLoaded", updateCartDisplay);
+
+
+
+document.querySelectorAll(".downloadBtn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    const modal = btn.closest(".product-modal");
+    const name = modal.querySelector(".productName").innerText;
+    const price = modal.querySelector(".productPrice").innerText;
+    const desc = modal.querySelector(".productDesc").innerText;
+    const imgSrc = modal.querySelector(".productImg").src;
+
+    doc.setFontSize(18).text("Product Detail", 10, 20);
+
+    const img = new Image();
+    img.src = imgSrc;
+    img.onload = () => {
+      doc.addImage(img, "PNG", 10, 30, 90, 100);
+      doc.setFontSize(14).text(`Name: ${name}`, 10, 130);
+      doc.text(price, 10, 140);
+      doc.setFontSize(12).text("Description:", 10, 150);
+      doc.text(doc.splitTextToSize(desc, 180), 10, 160);
+
+      doc.save(`${name}.pdf`);
+    };
+  });
+});
+$(document).ready(function(){
+    $(".product-img").hover(
+        function() {
+            let newSrc = $(this).attr("data-alt"); 
+            if(newSrc) {
+                $(this).attr("data-original", $(this).attr("src")); 
+                $(this).attr("src", newSrc);
+            }
+        },
+        function() {
+            let original = $(this).attr("data-original");
+            if(original) {
+                $(this).attr("src", original);
+            }
+        }
+    );
+});
+function updateCartCount(count) {
+  const cartLink = document.querySelector('a[href="#cartCanvas"]');
+  if (cartLink) {
+    // Remove existing count if present
+    const existingCount = cartLink.querySelector('.cart-count');
+    if (existingCount) {
+      existingCount.remove();
+    }
+
+    if (count > 0) {
+      // Create badge
+      const badge = document.createElement("span");
+      badge.className = "cart-count badge bg-danger text-white";
+      badge.textContent = count;
+
+      // Position it absolutely on top-right of the icon
+      badge.style.position = "absolute";
+      badge.style.top = "0px";
+      badge.style.right = "-10px";
+      badge.style.fontSize = "12px";
+      badge.style.padding = "4px 6px";
+      badge.style.borderRadius = "50%";
+
+      // Ensure parent is relative
+      cartLink.style.position = "relative";
+
+      cartLink.appendChild(badge);
+    }
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartCount(0);
+});
+
+// ✅ All Products + Pages merged into one object
+// ✅ All Products + Pages
+const allProducts = {
+  // Nike
+  "air zoom pegasus 39": "AirZoomPegasus39",
+  "react infinity run flyknit": "ReactInfinityRunFlyknit",
+  "zoomx vaporfly next% 2": "ZoomXVaporflyNext2",
+  "zoom fly 4": "ZoomFly4",
+  "air zoom structure 24": "AirZoomStructure24",
+  "air zoom wildhorse 7": "AirZoomWildhorse7",
+  "nike pegasus trail 3": "NikePegasusTrail3",
+  "nike air zoom alphafly next% 2": "NikeAirZoomAlphaflyNext2",
+  "react miler 2": "ReactMiler2",
+  "air zoom vomero 16": "AirZoomVomero16",
+  "air zoom freak 4": "AirZoomFreak4",
+  "lebron 20": "LeBron20",
+  "dri-fit aerobill tailwind cap": "Dri-FITAerobillTailwindCap",
+  "pro combat hyperwarm hood": "ProCombatHyperwarmHood",
+  "swoosh headband": "SwooshHeadband",
+  "nike dri-fit legacy91 cap": "NikeDri-FITLegacy91Cap",
+  "brasilia training backpack extra large": "BrasiliaTrainingBackpack(ExtraLarge)",
+  "hayward 2.0 backpack": "Hayward2.0Backpack",
+  "gym club training duffel bag": "GymClubTrainingDuffelBag",
+  "nike varsity elite backpack": "NikeVarsityEliteBackpack",
+  "vapor grip 3 football gloves": "VaporGrip3FootballGloves",
+  "vapor jet 7football gloves": "VaporJet7FootballGloves",
+  "hyperwarm gloves": "HyperwarmGloves",
+  "nike therma-fit football liner gloves": "NikeThermaFITFootballLinerGloves",
+  "everyday cushioned crew socks (3-pack)": "EverydayCushionedCrewSocks3Pack",
+  "pro hyper strong compression arm sleeve": "ProHyperstrongCompressionArmSleeve",
+  "elite basketball crew socks (2-pack)": "EliteBasketballCrewSocks2Pack",
+  "nike elite 2.0 cushioned crew socks (1 pair)": "NikeElite20CushionedCrewSocks1Pair",
+  "training mat": "TrainingMat",
+  "agility training ladder": "AgilityTrainingLadder",
+  "nike speed rope": "NikeSpeedRope",
+  "sport water bottle (24 oz)": "SportWaterBottle24oz",
+
+  // Spartan
+  "boss players edition cb 151": "BossPlayersEditionCB151",
+  "shadow 1000 cb 115": "SHADOW1000CB115",
+  "fighter cb 107": "FighterCB107",
+  "t20 edition 3000 cb 113": "T20Edition3000CB113",
+  "t20 edition 2000 cb 112": "T20Edition2000CB112",
+  "t20 edition 1000 cb 111": "T20Edition1000CB111",
+  "shadow 4000 cb 118": "SHADOW4000CB118",
+  "shadow 3000 cb 117": "SHADOW3000CB117",
+  "spartan trigger": "SPARTANTRIGGER",
+  "spartan premier black & white": "SPARTANPREMIERBLACK&WHITE",
+  "spartan trainer hand stitched": "SPARTANTRAINERHANDSTITCHED",
+  "spartan super shine": "SPARTANSUPERSHINE",
+  "spartan pro select": "SPARTANPROSELECT",
+  "spartan extreme star pu": "SPARTANEXTREMESTARPU",
+  "spartan premier 18 p color": "SPARTANPREMIER18PCOLOR",
+  "spartan japanese 18 p tri colour": "SPARTANJAPANESE18PTRICOLOUR",
+  "spartan with wheels 35×14×14": "SPARTAWITHWHEELS35x14x14",
+  "spartan run back pack": "RUNBACKPACK",
+  "camo special (o) 38×14×11": "CAMOSPECIAL(O)38x14x11",
+  "camo back pack (o) 28×11×12": "CAMOBACKPACK(O)28x11x12",
+  "spartan limited edition keeping gloves": "LIMITEDEDITIONKEEPINGGLOVES",
+  "spartan eco gloves": "1ECOGLOVES",
+  "spartan special": "SPARTANSPECIAL",
+  "cg boss limited edition": "CGBOSSLIMITEDEDITION",
+  "spartan warrior": "SPARTANWARRIOR",
+  "spartan fighter": "SPARTANFIGHTER",
+  "spartan eco": "SPARTANECO",
+  "spartan bullet": "SPARTANBULLET",
+  "t20 special": "T20SPECIAL",
+  "run": "RUN",
+  "eco": "ECO",
+  "limited edition": "LIMITEDEDITION",
+
+  // Baden
+  "perfection elite game basketball": "PerfectionEliteGameBasketball",
+  "baden contender composite basketball": "BadenContenderCompositeBasketball",
+  "baden all star rubber basketball": "BadenAllStarRubberBasketball",
+  "baden legend 29.5": "BadenLegend29.5",
+  "baden rival game indoor basketball": "BadenRivalGameIndoorBasketball",
+  "pro32 basketball": "Pro32Basketball",
+  "skilcoach heavy trainer basketball": "SkilcoachHeavyTrainerBasketball",
+  "crossover basketball": "CrossoverBasketball",
+  "axe avenge pro 3 hybrid bbcor baseball": "AxeAvengePro3HybridBBCORBaseball",
+  "axe strato 2 bbcor baseball bat -3": "AxeStrato2BBCORBaseballBat3|StandardHandle",
+  "2022 Elite One Pro (-3) BBCOR Baseball" : "2022EliteOnePro(-3)BBCORBaseball",
+  "2023 Avenge Pro Hybrid FLARED (-3) BBCOR Baseball Bat" : "2023AvengeProHybridFLARED(-3)BBCORBaseballBat",
+  "baden perfection leather volleyball": "BadenPerfectionLeatherVolleyball",
+  "baden lexum composite volleyball": "BadenLexumCompositeVolleyball",
+  "baden Light / Microfiber Volleyball" : "BadenLight/MicrofiberVolleyball" ,
+  "baden Match Point Synthetic / Cushioned Volleyball" : "BadenMatchPointSynthetic/CushionedVolleyball" ,
+  "baden zseries soccer ball": "BadenZSeriesSoccerBall",
+  "baden Thermo NFHS Soccer Ball": "BadenThermoNFHSSoccerBall",
+  "baden Thermo Bonded Game Futsal Ball ST4LB": "BadenThermoBondedGameFutsalBallST4LB",
+  "baden Gold Trophy Series Promo Soccer Ball": "BadenGoldTrophySeriesPromoSoccerBall",
+  "baden champions volleyball set": "BadenChampionsVolleyballSet",
+  "baden kubb game set": "BadenKubbGameSet",
+  "baden Pro Volleyball Set":"BadenProVolleyballSet",
+  "baden deluxe croquet set": "BadenDeluxeCroquetSet",
+  "dink Pink 40 Pickleball 3-Pack": "DinkPink40Pickleball3Pack",
+  "Patriot 40 Pickleball 3-Pack": "Patriot40Pickleball3Pack",
+  "pro1 Pickleball 3-Pack": "PRO1Pickleball3Pack",
+  "baden rival 40 Pickleball 3-Pack": "Rival40Pickleball3Pack",
+  "limited Edition Bogey Boys Pickleball Paddle":"LimitedEditionBogeyBoysPickleballPaddle",
+  "perfection 3k pickleball paddle": "Perfection3kPickleballPaddle",
+  "battle point pickleball paddle": "BattlePointPickleballPaddle",
+  "youth pickleball paddle": "YouthPickleballPaddle",
+
+  // Pages
+  "nike": "nike.html",
+  "spartan": "spartan.html",
+  "baden": "baden.html",
+  "about us": "Aboutus.html",
+  "comparison": "comparision.html",
+  "home": "home.html",
+  "contact us": "contactus.html"
+};
+
+// ✅ Brand detection keywords
+// ✅ Brand detection keywords
+const brandMap = {
+  nike: [
+    "nike", "zoom", "pegasus", "flyknit", "react", "lebron", "vomero", "freak",
+    "hyperwarm", "swoosh", "duffel", "sock", "cap", "glove", "training",
+    "vapor", "speed", "pack"
+  ],
+  spartan: [
+    "spartan", "cb", "shadow", "t20", "eco", "fighter", "warrior", "boss",
+    "run", "bag", "shine", "camo", "special", "limited"
+  ],
+  baden: [
+    "baden", "basketball", "volleyball", "pickleball", "soccer", "baseball",
+    "bat", "ball", "croquet", "kubb", "thermo"
+  ]
+};
+
+// ✅ Normalize text for matching
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s]/g, " ") // remove symbols like %, ×, &, /
+    .replace(/\s+/g, " ") // collapse spaces
+    .trim();
+}
+
+// ✅ Detect brand from name or keywords
+function getBrandFromProductName(name) {
+  name = name.toLowerCase();
+
+  if (name.includes("spartan")) return "spartan";
+  if (name.includes("baden")) return "baden";
+  if (name.includes("nike")) return "nike";
+
+  // fallback brand detection
+  for (let brand in brandMap) {
+    if (brandMap[brand].some(k => name.includes(k))) {
+      return brand;
+    }
+  }
+  return null;
+}
+
+// ✅ Handle redirect
+function handleRedirect(productName) {
+  const productId = allProducts[productName];
+  if (!productId) return alert("Product not found in list!");
+
+  const brand = getBrandFromProductName(productName);
+  if (!brand) return alert(`Brand not recognized for: ${productName}`);
+
+  if (productId.endsWith(".html")) {
+    window.location.href = productId;
+  } else {
+    window.location.href = `${brand}.html#${productId}`;
+  }
+}
+
+// ✅ Smart Search Logic
+function searchProduct() {
+  const rawQuery = document.getElementById("searchBox").value.trim();
+  if (!rawQuery) return alert("Please enter a search term!");
+
+  const query = normalize(rawQuery);
+  const allKeys = Object.keys(allProducts);
+
+  // 1️⃣ Exact match
+  const exactMatch = allKeys.find(name => normalize(name) === query);
+  if (exactMatch) return handleRedirect(exactMatch);
+
+  // 2️⃣ Partial match
+  const partialMatch = allKeys.find(name => normalize(name).includes(query));
+  if (partialMatch) return handleRedirect(partialMatch);
+
+  // 3️⃣ Multi-word fallback
+  const queryWords = query.split(" ");
+  for (let name of allKeys) {
+    const normalized = normalize(name);
+    let matchCount = 0;
+    for (let word of queryWords) {
+      if (normalized.includes(word)) matchCount++;
+    }
+    if (matchCount >= Math.ceil(queryWords.length / 2)) {
+      return handleRedirect(name);
+    }
+  }
+
+  alert("Product or page not found!");
+}
+
+// ✅ Suggestion system (FULLY FIXED)
+const searchBox = document.getElementById("searchBox");
+const suggestionBox = document.getElementById("suggestions");
+let currentFocus = -1;
+
+searchBox.addEventListener("input", function() {
+  let query = normalize(this.value);
+  suggestionBox.innerHTML = "";
+  currentFocus = -1;
+
+  if (!query) {
+    suggestionBox.style.display = "none";
+    return;
+  }
+
+  const allKeys = Object.keys(allProducts);
+  // ✅ Improved matching: flexible & forgiving
+  let matches = allKeys.filter(item => {
+    const name = normalize(item);
+    // Must match at least one word
+    return query.split(" ").some(word => name.includes(word));
+  });
+
+  if (matches.length > 0) {
+    suggestionBox.style.display = "block";
+
+    // Sort by brand (optional but clean)
+    matches.sort((a, b) => {
+      const brandA = getBrandFromProductName(a) || "";
+      const brandB = getBrandFromProductName(b) || "";
+      return brandA.localeCompare(brandB);
+    });
+
+    matches.slice(0, 50).forEach(match => { // limit to avoid overflow
+      let div = document.createElement("div");
+      div.textContent = match;
+      div.classList.add("suggestion-item");
+      div.addEventListener("click", function() {
+        searchBox.value = match;
+        suggestionBox.innerHTML = "";
+        suggestionBox.style.display = "none";
+        searchProduct();
+      });
+      suggestionBox.appendChild(div);
+    });
+  } else {
+    suggestionBox.style.display = "none";
+  }
+});
+
+searchBox.addEventListener("keydown", function(e) {
+  let items = suggestionBox.getElementsByClassName("suggestion-item");
+  if (!items.length) return;
+  if (e.key === "ArrowDown") {
+    currentFocus++;
+    addActive(items);
+  } else if (e.key === "ArrowUp") {
+    currentFocus--;
+    addActive(items);
+  } else if (e.key === "Enter") {
+    e.preventDefault();
+    if (currentFocus > -1 && items[currentFocus]) {
+      items[currentFocus].click();
+    } else {
+      searchProduct();
+    }
+  }
+});
+
+function addActive(items) {
+  if (!items) return false;
+  removeActive(items);
+  if (currentFocus >= items.length) currentFocus = 0;
+  if (currentFocus < 0) currentFocus = items.length - 1;
+  items[currentFocus].classList.add("active-suggestion");
+}
+
+function removeActive(items) {
+  for (let item of items) {
+    item.classList.remove("active-suggestion");
+  }
+}
+
+</script>
+
+
+
+
+</body>
+</html>
+
+

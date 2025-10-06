@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wilson Sporting Goods</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/Images/logo.png">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Roboto+Condensed:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: 'Roboto Condensed', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+    }
+    .navbar {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+      font-family: 'Montserrat', sans-serif;
+    }
+    .navbar-brand,
+    .nav-link {
+      color: #ffffff !important;
+      font-weight: 600;
+    }
+    
+   .navbar .nav-link.active {
+   color: #FFD700 !important;
+   border-bottom: 2px solid #FFD700;
+   }
+   .navbar .nav-link.active:hover
+   {
+    border: none;
+    color: #2E7D32 !important;
+   }
+      
+    .nav-link:hover {
+      background-color: #ffffff;   
+      color: #2E7D32 !important;  
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.7); 
+      border-radius: 20px;
+    }
+    .navbar-brand img {
+      height: 50px;
+      width: auto;
+      margin-right: 10px;
+    }
+    .dropdown-menu {
+      background-color: #ffffff;   
+      border-radius: 10px;         
+      border: none;                
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+    }
+    .dropdown-item {
+      color: #2E7D32;              
+      border-radius: 20px;         
+      padding: 8px 16px;
+      transition: all 0.3s ease;
+    }
+    .dropdown-item:hover {
+      background-color: #2E7D32;   
+      color: #ffffff;              
+    }
+    .cus-footer {
+      background: linear-gradient(135deg, #2E7D32, #1B5E20);
+    }
+    .cus-footer .footer-top {
+      padding: 50px 0;
+    }
+    .footer-link {
+      color: #ffffff;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 8px;
+      transition: 0.3s;
+    }
+    .footer-link:hover {
+      color: #d4edda;
+      transform: translateX(5px);
+    }
+    .social-circle {
+      width: 36px;
+      height: 36px;
+      margin-right: 8px;
+      background: #ffffff;
+      color: #2E7D32;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s;
+    }
+    .social-circle:hover {
+      background: #d4edda;
+      transform: scale(1.2);
+    }
+    .footer-bottom {
+      background: rgba(0, 0, 0, 0.2);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+
+    /* Simple Video Section Styling */
+    .video-hero-section {
+      padding: 0;
+      background: #f8f9fa;
+      text-align: center;
+    }
+    
+    .video-hero-container {
+      width: 100%;
+      margin: 0;
+    }
+    
+    .hero-heading {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #2E7D32;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .video-container {
+      position: relative;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+    
+    .hero-video {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .video-overlay .main-heading {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+      color: white;
+    }
+    
+    .video-overlay h2 {
+      font-size: 2.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    
+    .video-overlay p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    }
+    
+    
+    
+    @media (max-width: 768px) {
+      .hero-heading {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+      }
+      
+      .hero-video {
+        height: 300px;
+      }
+      
+      .video-overlay .main-heading {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+      }
+      
+      .video-overlay h2 {
+        font-size: 1.5rem;
+      }
+      
+      .video-overlay p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+      
+      .video-overlay .shop-now-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+      
+      .video-hero-section {
+        padding: 0;
+      }
+    }
+
+    .category-diagonal {
+      position: relative;
+      min-height: 220px;
+      background-size: cover;
+      background-position: center;
+      clip-path: polygon(0 0, 100% 5%, 100% 95%, 0% 100%);
+      transition: transform 0.4s ease-in-out;
+    }
+    .category-diagonal:hover {
+      transform: scale(1.05);
+    }
+    .category-diagonal .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .category-diagonal h3 {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .top-selling {
+      background: #f9f9f9;
+    }
+    .product-card {
+      border-radius: 15px;
+      background: #fff;
+      transition: all 0.4s ease-in-out;
+      flex: 1 1 100%;
+      max-width: 250px;
+    }
+    .product-card img {
+      max-height: 160px;
+      object-fit: contain;
+      width: 100%;
+    }
+    .center-card {
+      transform: scale(1.1);
+      z-index: 2;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      border-radius: 15px;
+    }
+    .small-card {
+      opacity: 0.9;
+      transform: scale(0.95);
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: invert(1);
+    }
+
+    .special-offers .offer-banner {
+      position: relative;
+      overflow: hidden;
+    }
+    .special-offers img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .center-card {
+        transform: none;
+        box-shadow: none;
+      }
+      .small-card {
+        transform: none;
+        opacity: 1;
+      }
+      .carousel .d-flex {
+        flex-direction: column;
+        align-items: center;
+      }
+      .product-card {
+        max-width: 90%;
+        margin-bottom: 1rem;
+      }
+      .category-diagonal {
+        min-height: 180px;
+      }
+      .special-offers img {
+        max-height: 300px;
+      }
+    }
+    .y1
+    {
+      transition: transform 0.3s ease-in-out;
+    }
+    .y1:hover
+    {
+      transform: translateY(-10px);
+    }
+    .y2
+    {
+      transition: transform 0.3s ease-in-out;
+    }
+    .y2:hover
+    {
+      transform: translateY(-10px);
+    }
+    .y3
+    {
+      transition: transform 0.3s ease-in-out;
+    }
+    .y3:hover
+    {
+      transform: translateY(-10px);
+    }
+    .y4
+    {
+      transition: transform 0.3s ease-in-out;
+    }
+    .y4:hover
+    {
+      transform: translateY(-10px);
+    }
+    .y5
+    {
+      transition: transform 0.3s ease-in-out;
+    }
+    .y5:hover
+    {
+      transform: translateY(-10px);
+    }
+    .y6
+    {
+      transition: transform 0.3s ease-in-out;
+    }
+    .y6:hover
+    {
+      transform: translateY(-10px);
+    }
+    .card-img-top {
+    height: 180px;       /* smaller height */
+    object-fit: contain;
+    }
+    .flip-card {
+  perspective: 1000px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+}
+.flip-card-front {
+  background-color: #f8f9fa;
+  color: #000;
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+  .card-title { 
+    color:#1b5e20; 
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+
+  
+  /* Cart alert box container (fixed top center) */
+  #cartAlertBox {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1060;
+    max-width: 400px;
+    min-width: 320px;
+    pointer-events: none;
+  }
+  
+  /* Base alert */
+  .cart-alert {
+    background: linear-gradient(135deg, #d1f7d6, #e8f7ea);
+    color: #155724;
+    border: none;
+    border-left: 5px solid #28a745;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+    animation: slideInCenter 0.2s ease-out;
+    position: relative;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.8);
+    overflow: hidden;
+    pointer-events: all;
+  }
+  
+  /* Cart alert icon */
+  .cart-alert::before {
+    content: "✓";
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #28a745;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  /* Adjust text to accommodate icon */
+  .cart-alert {
+    padding-left: 50px;
+  }
+  
+  /* Close button enhanced */
+  .cart-alert .close-btn {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #28a745;
+    background: rgba(255,255,255,0.8);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    line-height: 1;
+  }
+  
+  .cart-alert .close-btn:hover {
+    background: rgba(255,255,255,1);
+    color: #155724;
+    transform: scale(1.1);
+  }
+  
+  /* Enhanced animations */
+  @keyframes slideInCenter {
+    from {
+      opacity: 0;
+      transform: translateY(-100%) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-100%) scale(0.9);
+    }
+  }
+  .btn-add { 
+    background-color:#388e3c; 
+    color:white; 
+    width:48%; 
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  .btn-add:hover { 
+    background-color:#2e7d32; 
+    transform: translateY(-2px);
+  }
+    .card-text { 
+    color:#2e7d32; 
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+.cart-alert {
+  background: linear-gradient(135deg, #d1f7d6, #e8f7ea);
+  color: #155724;
+  border: none;
+  border-left: 5px solid #28a745;
+  padding: 16px 20px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+  animation: slideInCenter 0.2s ease-out;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.8);
+  overflow: hidden;
+  pointer-events: all;
+}
+
+/* Cart alert icon */
+.cart-alert::before {
+  content: "✓";
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #28a745;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Adjust text to accommodate icon */
+.cart-alert {
+  padding-left: 50px;
+}
+
+/* Close button enhanced */
+.cart-alert .close-btn {
+  position: absolute;
+  right: 12px;
+  top: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #28a745;
+  background: rgba(255,255,255,0.8);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.cart-alert .close-btn:hover {
+  background: rgba(255,255,255,1);
+  color: #155724;
+  transform: scale(1.1);
+}
+
+.cart-alert.error {
+  background: linear-gradient(135deg, #f8d7da, #fce8ea);
+  color: #721c24;
+  border-left: 5px solid #dc3545;
+  box-shadow: 0 6px 20px rgba(220, 53, 69, 0.2), 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cart-alert.error::before {
+  content: "✕";
+  background: #dc3545;
+}
+
+.cart-alert.error .close-btn {
+  color: #dc3545;
+}
+
+.cart-alert.error .close-btn:hover {
+  color: #721c24;
+}
+.cart-count-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #dc3545;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 50%;
+  display: none; /* default hidden */
+}
+#suggestions {
+  position: absolute;
+  top: 100%; /* right below input */
+  left: 0;
+  width: 100%;
+  max-height: 250px; /* scrollable if too long */
+  overflow-y: auto;
+  z-index: 1000;
+  display: none; /* hidden by default */
+  border: 1px solid #ced4da;
+  border-top: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Each suggestion item */
+.suggestion-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: #495057;
+}
+
+/* Hover effect */
+.suggestion-item:hover {
+  background-color: #198754; /* Bootstrap success color */
+  color: #fff;
+}
+
+/* Scrollbar styling */
+#suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+
+#suggestions::-webkit-scrollbar-thumb {
+  background-color: #198754;
+  border-radius: 3px;
+}
+
+#suggestions::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+form[role="search"] {
+  position: relative;
+}
+/* --- Simple styling --- */
+.suggestion-box {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  width: 300px;
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+}
+
+.suggestion-item {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover,
+.active-suggestion {
+  background: #198754;
+  color: white;
+}
+  </style>
+</head>
+<body>
+
+<!-- Cart Alert Container -->
+<div id="cartAlertBox"></div>
+
+<div class="bg-light py-2 border-bottom">
+  <div class="container d-flex justify-content-center">
+    <form class="d-flex w-75" role="search" onsubmit="searchProduct(); return false;">
+      <input id="searchBox" class="form-control me-2" type="search" placeholder="Search products..." type="text">
+        <div id="suggestions" class="list-group" ></div>
+      <button class="btn btn-success" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a style="font-size: 16px;" class="navbar-brand d-flex align-items-center" href="home.html">
+      <img style="margin-right: 1px;" src="/Images/logo.png" alt="Logo">
+      Wɪʟꜱᴏɴ Sᴘᴏʀᴛɪɴɢ Gᴏᴏᴅꜱ
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="Aboutus.html">About Us</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Brands</a>
+          <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="nike.html">Nike</a></li>
+              <li><a class="dropdown-item" href="spartan.html">Spartan</a></li>
+              <li><a class="dropdown-item" href="baden.html">Baden</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="comparision.html">Comparison</a></li>
+        <li class="nav-item"><a class="nav-link" href="contactus.html">Contact Us</a></li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li id="cart-count" class="nav-item"><a class="nav-link" href="#cartCanvas" data-bs-toggle="offcanvas"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+        <li class="nav-item"><a class="nav-link" href="loginregister.html"><i class="fa-solid fa-user-plus"></i> Register/Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Video Hero Section -->
+<section class="video-hero-section">
+  <div class="video-hero-container">
+    <!-- Video Container with All Overlays -->
+    <div class="video-container">
+      <video class="hero-video" autoplay muted loop>
+        <source src="../Images/video1.mp4" type="video/mp4">
+        <source src="/Images/sports-video.webm" type="video/webm">
+        Your browser does not support the video tag.
+      </video>
+      
+      <!-- All Text and Button Overlays on Video -->
+      <div class="video-overlay">
+        <h1 class="main-heading">WILSON SPORTING GOODS</h1>
+        <h2>Premium Sports Equipment</h2>
+        <p>Elevate Your Game with Wilson</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartCanvas">
+  <div class="offcanvas-header bg-success text-white">
+    <h5 class="offcanvas-title"><i class="fas fa-shopping-cart"></i> My Cart</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div id="cart-items"></div>
+    <hr>
+    <div class="d-flex justify-content-between">
+      <h5><strong>Total:</strong></h5>
+      <h5><strong><span id="cart-total">0</span> $</strong></h5>
+    </div>
+    <div class="mt-3 d-grid gap-2">
+      <button class="btn btn-success" onclick="checkout()">Checkout</button>
+      <button class="btn btn-outline-success" data-bs-dismiss="offcanvas">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+
+  <div class="container-fluid px-0">
+    <h2 class="fw-bold text-center py-4" style="color:#2E7D32;">Shop by Brand</h2>
+    <div class="row g-0">
+      <div class="col-12 col-md-4 position-relative">
+        <a href="nike.html">
+        <div class="category-diagonal" style="background-image:url('/Images/nike.jpg');">
+          <div class="overlay"><h3>Nike</h3></div>
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 position-relative">
+        <a href="spartan.html">
+        <div class="category-diagonal" style="background-image:url('/Images/spartan.jpeg');">
+          <div class="overlay"><h3>SPARTAN</h3></div>
+          </a>
+        </div>
+      </div>
+      <div class="col-12 col-md-4 position-relative">
+        <a href="baden.html">
+        <div class="category-diagonal" style="background-image:url('/Images/baden.jpeg');">
+          <div class="overlay"><h3>BADEN</h3></div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="top-selling py-5">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">Top Selling Products</h2>
+      <div id="topSellingCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-center gap-4 flex-wrap">
+              <div class="product-card small-card text-center p-4 shadow-sm">
+                <img src="/nike_images/6.jpg" class="img-fluid mb-3" alt="Cricket Ball">
+                <h6 class="fw-bold card-title">Air Zoom Wildhorse 7</h6>
+                <p class="card-text">Price: $140</p>
+                <button class="btn btn-add btn-sm" onclick="addToCartHome('Air Zoom Wildhorse 7')">Add to Cart</button>
+              </div>
+              <div class="product-card center-card text-center p-4 shadow-sm">
+                <img src="/spartan_images/2.png" class="img-fluid mb-3" alt="Cricket Bat">
+                <h5 class="fw-bold card-title">SHADOW 1000 CB 115</h5>
+                <p class="card-text ">Price: $50</p>
+                <button class="btn btn-add btn-sm" onclick="addToCartHome('SHADOW 1000 CB 115')">Add to Cart</button>
+              </div>
+              <div class="product-card small-card text-center p-4 shadow-sm">
+                <img src="/nike_images/17.png" class="img-fluid mb-3" alt="Batting Gloves">
+                <h6 class="fw-bold card-title">Hayward 2.0 Backpack</h6>
+                <p class="card-text ">Price: $50</p>
+                <button class="btn btn-add btn-sm" onclick="addToCartHome('Hayward 2.0 Backpack')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="d-flex justify-content-center gap-4 flex-wrap">
+              <div class="product-card small-card text-center p-4 shadow-sm">
+                <img src="/spartan_images/27.png" class="img-fluid mb-3" alt="Shoes">
+                <h6 class="fw-bold card-title">SPARTAN ECO</h6>
+                <p class="card-text ">Price: $11.05</p>
+                <button class="btn btn-add btn-sm" onclick="addToCartHome('SPARTAN ECO')">Add to Cart</button>
+              </div>
+              <div class="product-card center-card text-center p-4 shadow-sm">
+                <img src="/nike_images/27.png" class="img-fluid mb-3" alt="Helmet">
+                <h5 class="fw-bold card-title">Nike Speed Rope</h5>
+                <p class="card-text ">Price: $20</p>
+                <button class="btn btn-add btn-sm" onclick="addToCartHome('Nike Speed Rope')">Add to Cart</button>
+              </div>
+              <div class="product-card small-card text-center p-4 shadow-sm">
+                <img src="/spartan_images/29.png" class="img-fluid mb-3" alt="Kit Bag">
+                <h6 class="fw-bold card-title">T20 SPECIAL</h6>
+                <p class="card-text ">Price: $50.98</p>
+                <button class="btn btn-add btn-sm" onclick="addToCartHome('T20 SPECIAL')">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#topSellingCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#topSellingCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon bg-dark rounded-circle p-3" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+ <section class="special-offers my-5">
+  <div class="container-fluid p-0">
+    <div class="offer-banner position-relative text-center">
+      <img src="/Images/banner2.jpg" class="img-fluid w-100" alt="Special Offers">
+
+    </div>
+  </div>
+</section>
+  <section class="new-arrivals py-5">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4" style="color:#2E7D32;">New Arrivals</h2>
+      <button id="showArrivals" class="btn btn-success mb-4 fw-bold position-relative" style="bottom: 20px;top: 1px;" >
+      Show New Arrivals
+    </button>
+
+    
+    
+    <div class="row g-4 justify-content-center " id="arrivalsContainer">
+      <div class="col-md-4 col-6 arrival-card y1" style="display: none;">
+        <div class="card shadow-sm h-100">
+          <img src="/nike_images/dri.jpg" class="card-img-top" alt="New Arrival 1">
+          <div class="card-body">
+            <h5 class="card-title">Nike Dri-FIT Legacy91 Cap</h5>
+            <p class="card-text">Price: $28</p>
+            <button class="btn btn-add " onclick="addToCartHome('Nike Dri-FIT Legacy91 Cap')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-6 arrival-card y2" style="display: none;">
+        <div class="card shadow-sm h-100">
+          <img src="/baden_images/1.png" class="card-img-top" alt="New Arrival 2">
+          <div class="card-body">
+            <h5 class="card-title">Perfection Elite Game Basketball</h5>
+            <p class="card-text ">Price: $69.99</p>
+            <button class="btn btn-add " onclick="addToCartHome('Perfection Elite Basketball')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-6 arrival-card y3" style="display: none;">
+        <div class="card shadow-sm h-100">
+          <img src="/spartan_images/24.png" class="card-img-top" alt="New Arrival 3">
+          <div class="card-body">
+            <h5 class="card-title">CG BOSS LIMITED EDITION</h5>
+            <p class="card-text ">Price: $46.24</p>
+            <button class="btn btn-add" onclick="addToCartHome('CG BOSS LIMITED EDITION')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+            <div class="col-md-4 col-6 arrival-card y4" style="display: none;">
+        <div class="card shadow-sm h-100">
+          <img src="/baden_images/25.png" class="card-img-top" alt="New Arrival 1">
+          <div class="card-body">
+            <h5 class="card-title">Dink Pink 40 Pickleball 3-Pack</h5>
+            <p class="card-text ">Price: $14.99</p>
+            <button class="btn btn-add" onclick="addToCartHome('Dink Pink 40 Pickleball 3-Pack')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-6 arrival-card y5" style="display: none;">
+        <div class="card shadow-sm h-100">
+          <img src="/baden_images/21.png" class="card-img-top" alt="New Arrival 2">
+          <div class="card-body">
+            <h5 class="card-title">Baden Champions Volleyball Set</h5>
+            <p class="card-text ">Price: $199.99</p>
+            <button class="btn btn-add " onclick="addToCartHome('Baden ChampionsVolleyball')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-6 arrival-card y5" style="display: none;">
+        <div class="card shadow-sm h-100">
+          <img src="/baden_images/18.png" class="card-img-top" alt="New Arrival 3">
+          <div class="card-body">
+            <h5 class="card-title">Baden Thermo NFHS SoccerBall</h5>
+            <p class="card-text">Price: $53.99</p>
+            <button class="btn btn-add " onclick="addToCartHome('Baden ThermoNFHS Soccer')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<section class="flipping-reviews py-5 text-center">
+  <div class="container">
+    <h2 class="fw-bold mb-5" style="color:#2E7D32;">What Our Customers Say</h2>
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front p-4 shadow-sm rounded bg-light">
+<img src="/Images/gril.jpeg" class="rounded-circle img-fluid" alt="Circle Image" style="width:80px; height:80px; object-fit:cover;">
+
+              <p class="mb-3">"Wilson Sporting Goods always delivers the best quality."</p>
+              <h6 class="fw-bold text-success">- Sarah M.</h6>
+            </div>
+            <div class="flip-card-back p-4 rounded" style="background:linear-gradient(135deg,#2E7D32,#1B5E20); color:white;">
+              <h5 class="mb-2">⭐️⭐️⭐️⭐️⭐️</h5>
+              <p>Loyal customer since 2021</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front p-4 shadow-sm rounded bg-light">
+              <img src="/Images/boy].jpg" class="rounded-circle img-fluid" alt="Circle Image" style="width:80px; height:80px; object-fit:cover;">
+
+              <p class="mb-3">"Amazing customer service and fast delivery. Highly recommend!"</p>
+              <h6 class="fw-bold text-success">- John D.</h6>
+            </div>
+            <div class="flip-card-back p-4 rounded" style="background:linear-gradient(135deg,#1B5E20,#2E7D32); color:white;">
+              <h5 class="mb-2">⭐️⭐️⭐️⭐️⭐️</h5>
+              <p>Verified Purchase</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front p-4 shadow-sm rounded bg-light">
+              <img src="/Images/boy2.jpeg" class="rounded-circle img-fluid" alt="Circle Image" style="width:80px; height:80px; object-fit:cover;">
+
+              <p class="mb-3">"Love the variety of brands. Found everything for my cricket team."</p>
+              <h6 class="fw-bold text-success">- Ahmed R.</h6>
+            </div>
+            <div class="flip-card-back p-4 rounded" style="background:linear-gradient(135deg,#2E7D32,#1B5E20); color:white;">
+              <h5 class="mb-2">⭐️⭐️⭐️⭐️</h5>
+              <p>Repeat Buyer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="cus-footer text-white">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <h4 class="fw-bold mb-3 d-flex align-items-center">
+            <img src="/Images/logo.png" alt="Logo" style="height: 40px; width: auto; margin-right: 10px;">
+            Wilson Sporting Goods
+          </h4>
+          <p>Pushing the limits of performance. From courts to fields, we fuel your passion for sports.</p>
+          <a href="loginregister.html" class="btn btn-light btn-sm mt-2 fw-bold">Join the Team</a>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="home.html" class="footer-link"><i class="fas fa-home me-2"></i>Home</a></li>
+            <li><a href="Aboutus.html" class="footer-link"><i class="fas fa-users me-2"></i>About Us</a></li>
+            <li class="dropdown">
+              <a href="#" class="footer-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-dumbbell me-2"></i>Brands</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="nike.html">Nike</a></li>
+                <li><a class="dropdown-item" href="spartan.html">Spartan</a></li>
+                <li><a class="dropdown-item" href="baden.html">Baden</a></li>
+              </ul>
+            </li>
+            <li><a href="comparision.html" class="footer-link"><i class="fas fa-balance-scale me-2"></i>Comparision</a></li>
+            <li><a href="contactus.html" class="footer-link"><i class="fas fa-envelope me-2"></i>Contact Us</a></li>
+          </ul>
+        </div>
+       <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Support</h6>
+          <ul class="list-unstyled">
+            <li><a href="contactus.html#faq" class="footer-link"><i class="fas fa-question-circle me-2"></i>FAQ</a></li>
+            <li><a href="contactus.html#map1" class="footer-link"><i class="fas fa-shipping-fast me-2"></i>Store Locator</a></li>
+            <li><a href="contactus.html#contact" class="footer-link"><i class="fas fa-map-marker-alt me-2"></i>Contact Support</a></li>
+            <li><a href="loginregister.html" class="footer-link"><i class="fas fa-shield-alt me-2"></i>Product Registration</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h6 class="fw-bold mb-3">Contact Info</h6>
+          <p><i class="fas fa-map-marker-alt me-2"></i>60 E Walton St, Chicago, IL 60611, United States</p>
+          <p><i class="fas fa-phone me-2"></i>+1 312-366-2336</p>
+          <p><i class="fas fa-envelope me-2"></i><a style="text-decoration: none;color: white;"  href="mailto:info@wilsonsportinggoods.com?subject=Inquiry&body=Hello Wilson Team,">info@wilsonsportinggoods.com</a></p>
+          <h6 class="fw-bold mb-3">Follow Us</h6>
+          <div class="d-flex">
+            <a href="https://www.facebook.com/share/1HcF7QNqLy/" target="_blank"  class="social-circle"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/wilsonjp1914" target="_blank" class="social-circle"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/wilson?igsh=dGs0Z2d4dXpib2lr" target="_blank" class="social-circle"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@wilsonsportinggoods?feature=shared" target="_blank" class="social-circle"><i class="fab fa-youtube"></i></a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="mb-0">© 2025 Wilson Sporting Goods. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+function checkout() {
+  let cartItemsDiv = document.getElementById("cart-items");
+  let totalDiv = document.getElementById("cart-total");
+
+  let cartText = cartItemsDiv.innerText.trim();
+  let totalText = totalDiv.innerText.trim();
+
+  if (cartText !== "" && cartText !== "Your cart is empty") {
+    // ✅ Agar cart me items hain
+    showCartAlert("Thank you! Your checkout is successful.");
+
+    // cart clean karo aur "Your cart is empty" dikhado
+    cartItemsDiv.innerHTML = `<p class="text-center text-muted my-3">Your cart is empty</p>`;
+    totalDiv.innerHTML = "0.00";
+    cart = [];
+    updateCartCount(0);
+
+    // offcanvas close karo
+    let offcanvasEl = document.getElementById('cartCanvas');
+    let offcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+    if (offcanvas) {
+      offcanvas.hide();
+    }
+  } else {
+    // ❌ Agar cart empty hai
+    showCartError("Your cart is empty. Please add items before checkout.");
+  }
+}
+let cart = [];
+const cartItems = document.getElementById('cart-items');
+const cartTotal = document.getElementById('cart-total');
+
+// Simple video functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const video = document.querySelector('.hero-video');
+  if (video) {
+    // Ensure video plays automatically
+    video.play().catch(function(error) {
+      console.log('Video autoplay failed:', error);
+    });
+  }
+  updateCartDisplay();
+});
+
+// Cart alert functions
+function showCartAlert(message) {
+  const alertBox = document.getElementById("cartAlertBox");
+
+  // Create alert div with enhanced styling
+  const alert = document.createElement("div");
+  alert.className = "cart-alert";
+  alert.innerHTML = `
+    <strong>✓ Success!</strong><br>
+    ${message}
+    <span class="close-btn" onclick="closeCartAlert(this)">&times;</span>
+  `;
+
+  // Append alert immediately
+  alertBox.appendChild(alert);
+
+  // Auto close after 3s with fast animation
+  setTimeout(() => {
+    if (alert && alert.parentElement) {
+      alert.style.animation = "fadeOut 0.2s ease-in";
+      setTimeout(() => {
+        if (alert.parentElement) {
+          alert.remove();
+        }
+      }, 200);
+    }
+  }, 3000);
+}
+
+function closeCartAlert(element) {
+  const alert = element.parentElement;
+  alert.style.animation = "fadeOut 0.2s ease-in";
+  setTimeout(() => {
+    if (alert.parentElement) {
+      alert.remove();
+    }
+  }, 200);
+}
+function showCartError(message) {
+  const alertBox = document.getElementById("cartAlertBox");
+
+  const alert = document.createElement("div");
+  alert.className = "cart-alert error";
+  alert.innerHTML = `
+    <strong>✕ Error!</strong><br>
+    ${message}
+    <span class="close-btn" onclick="closeCartAlert(this)">&times;</span>
+  `;
+
+  alertBox.appendChild(alert);
+
+  setTimeout(() => {
+    if (alert && alert.parentElement) {
+      alert.style.animation = "fadeOut 0.2s ease-in";
+      setTimeout(() => alert.remove(), 200);
+    }
+  }, 3000);
+}
+
+function closeCartAlert(element) {
+  const alert = element.parentElement;
+  alert.style.animation = "fadeOut 0.2s ease-in";
+  setTimeout(() => {
+    if (alert.parentElement) {
+      alert.remove();
+    }
+  }, 200);
+}
+
+// Add to cart function for home page products
+function addToCartHome(productName, price, imgSrc) {
+  // Get price if not provided
+  if (!price) {
+    const productPrices = {
+      'Air Zoom Wildhorse 7': 140,
+      'SHADOW 1000 CB 115': 50,
+      'Hayward 2.0 Backpack': 50,
+      'SPARTAN ECO': 11.05,
+      'Nike Speed Rope': 20,
+      'T20 SPECIAL': 60,
+      'Nike Dri-FIT Legacy91 Cap': 28,
+      'Perfection Elite Basketball': 69.99,
+      'CG BOSS LIMITED EDITION': 46.24,
+      'Dink Pink 40 Pickleball 3-Pack': 14.99,
+      'Baden ChampionsVolleyball': 199.99,
+      'Baden ThermoNFHS Soccer': 53.99
+    };
+    price = productPrices[productName] || 0;
+  }
+  
+  // Get image if not provided
+  if (!imgSrc) {
+    const productImages = {
+      'Air Zoom Wildhorse 7': '/nike_images/6.jpg',
+      'SHADOW 1000 CB 115': '/spartan_images/2.png',
+      'Hayward 2.0 Backpack': '/nike_images/17.png',
+      'SPARTAN ECO': '/spartan_images/27.png',
+      'Nike Speed Rope': '/nike_images/27.png',
+      'T20 SPECIAL': '/spartan_images/29.png',
+      'Nike Dri-FIT Legacy91 Cap': '/nike_images/dri.jpg',
+      'Perfection Elite Basketball': '/baden_images/1.png',
+      'CG BOSS LIMITED EDITION': '/spartan_images/24.png',
+      'Dink Pink 40 Pickleball 3-Pack': '/baden_images/25.png',
+      'Baden ChampionsVolleyball': '/baden_images/21.png',
+      'Baden ThermoNFHS Soccer': '/baden_images/18.png'
+    };
+    imgSrc = productImages[productName] || '/Images/placeholder.jpg';
+  }
+
+  // Check if item already exists in cart
+  const existingItem = cart.find(item => item.name === productName);
+  
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({
+      name: productName,
+      price: price,
+      imgSrc: imgSrc,
+      quantity: 1
+    });
+  }
+  
+  // Show cart alert
+  showCartAlert(`${productName} added to cart!`);
+  
+  // Update cart display
+  updateCartDisplay();
+}
+
+function removeFromCart(index) {
+  // Remove the item at given index
+  cart.splice(index, 1);
+
+  // Refresh cart display & badge
+  updateCartDisplay();
+
+  // Show alert
+  showCartAlert("Item removed from cart!");
+}
+
+// Update cart display function
+function updateCartDisplay() {
+  if (!cartItems || !cartTotal) return;
+  
+  cartItems.innerHTML = '';
+  let total = 0;
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = `
+      <p class="text-center text-muted my-3">Your cart is empty</p>
+    `;
+    cartTotal.textContent = '0.00';
+    updateCartCount(0);
+    return;
+  }
+
+  cart.forEach((item, index) => {
+    const itemTotal = item.price * item.quantity;
+    total += itemTotal;
+
+    const cartItemDiv = document.createElement('div');
+    cartItemDiv.className = 'cart-item d-flex justify-content-between align-items-center mb-2';
+    cartItemDiv.innerHTML = `
+      <div class="d-flex align-items-center">
+        <img src="${item.imgSrc}" alt="${item.name}" 
+             style="width: 50px; height: 50px; object-fit: contain; margin-right: 10px;">
+        <div>
+          <p class="mb-0"><strong>${item.name}</strong></p>
+          <p class="mb-0">$${item.price} x ${item.quantity}</p>
+        </div>
+      </div>
+      <div>
+        <span class="text-success">$${itemTotal.toFixed(2)}</span>
+        <button class="btn btn-sm btn-danger ms-2" onclick="removeFromCart(${index})">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    `;
+
+    cartItems.appendChild(cartItemDiv);
+  });
+
+  cartTotal.textContent = total.toFixed(2);
+  updateCartCount(cart.reduce((sum, item) => sum + item.quantity, 0));
+}
+
+// Update cart count badge
+function updateCartCount(count) {
+  const cartLink = document.querySelector('a[href="#cartCanvas"]');
+  if (cartLink) {
+    // Remove existing count if present
+    const existingCount = cartLink.querySelector('.cart-count');
+    if (existingCount) {
+      existingCount.remove();
+    }
+
+    if (count > 0) {
+      // Create badge
+      const badge = document.createElement("span");
+      badge.className = "cart-count badge bg-danger text-white";
+      badge.textContent = count;
+
+      // Position it absolutely on top-right of the icon
+      badge.style.position = "absolute";
+      badge.style.top = "0px";
+      badge.style.right = "-10px";
+      badge.style.fontSize = "12px";
+      badge.style.padding = "4px 6px";
+      badge.style.borderRadius = "50%";
+
+      // Ensure parent is relative
+      cartLink.style.position = "relative";
+
+      cartLink.appendChild(badge);
+    }
+  }
+}
+
+// New Arrivals functionality
+$(document).ready(function(){
+  $("#showArrivals").click(function(){
+    $(".arrival-card").each(function(index){
+      $(this).delay(300 * index).fadeIn(600);
+    });
+    $(this).prop("disabled", true).text("New Arrivals Shown");
+  });
+});
+
+// ✅ All Products + Pages merged into one object
+// ✅ All Products + Pages
+const allProducts = {
+  // Nike
+  "air zoom pegasus 39": "AirZoomPegasus39",
+  "react infinity run flyknit": "ReactInfinityRunFlyknit",
+  "zoomx vaporfly next% 2": "ZoomXVaporflyNext2",
+  "zoom fly 4": "ZoomFly4",
+  "air zoom structure 24": "AirZoomStructure24",
+  "air zoom wildhorse 7": "AirZoomWildhorse7",
+  "nike pegasus trail 3": "NikePegasusTrail3",
+  "nike air zoom alphafly next% 2": "NikeAirZoomAlphaflyNext2",
+  "react miler 2": "ReactMiler2",
+  "air zoom vomero 16": "AirZoomVomero16",
+  "air zoom freak 4": "AirZoomFreak4",
+  "lebron 20": "LeBron20",
+  "dri-fit aerobill tailwind cap": "Dri-FITAerobillTailwindCap",
+  "pro combat hyperwarm hood": "ProCombatHyperwarmHood",
+  "swoosh headband": "SwooshHeadband",
+  "nike dri-fit legacy91 cap": "NikeDri-FITLegacy91Cap",
+  "brasilia training backpack extra large": "BrasiliaTrainingBackpack(ExtraLarge)",
+  "hayward 2.0 backpack": "Hayward2.0Backpack",
+  "gym club training duffel bag": "GymClubTrainingDuffelBag",
+  "nike varsity elite backpack": "NikeVarsityEliteBackpack",
+  "vapor grip 3 football gloves": "VaporGrip3FootballGloves",
+  "vapor jet 7football gloves": "VaporJet7FootballGloves",
+  "hyperwarm gloves": "HyperwarmGloves",
+  "nike therma-fit football liner gloves": "NikeThermaFITFootballLinerGloves",
+  "everyday cushioned crew socks (3-pack)": "EverydayCushionedCrewSocks3Pack",
+  "pro hyper strong compression arm sleeve": "ProHyperstrongCompressionArmSleeve",
+  "elite basketball crew socks (2-pack)": "EliteBasketballCrewSocks2Pack",
+  "nike elite 2.0 cushioned crew socks (1 pair)": "NikeElite20CushionedCrewSocks1Pair",
+  "training mat": "TrainingMat",
+  "agility training ladder": "AgilityTrainingLadder",
+  "nike speed rope": "NikeSpeedRope",
+  "sport water bottle (24 oz)": "SportWaterBottle24oz",
+
+  // Spartan
+  "boss players edition cb 151": "BossPlayersEditionCB151",
+  "shadow 1000 cb 115": "SHADOW1000CB115",
+  "fighter cb 107": "FighterCB107",
+  "t20 edition 3000 cb 113": "T20Edition3000CB113",
+  "t20 edition 2000 cb 112": "T20Edition2000CB112",
+  "t20 edition 1000 cb 111": "T20Edition1000CB111",
+  "shadow 4000 cb 118": "SHADOW4000CB118",
+  "shadow 3000 cb 117": "SHADOW3000CB117",
+  "spartan trigger": "SPARTANTRIGGER",
+  "spartan premier black & white": "SPARTANPREMIERBLACK&WHITE",
+  "spartan trainer hand stitched": "SPARTANTRAINERHANDSTITCHED",
+  "spartan super shine": "SPARTANSUPERSHINE",
+  "spartan pro select": "SPARTANPROSELECT",
+  "spartan extreme star pu": "SPARTANEXTREMESTARPU",
+  "spartan premier 18 p color": "SPARTANPREMIER18PCOLOR",
+  "spartan japanese 18 p tri colour": "SPARTANJAPANESE18PTRICOLOUR",
+  "spartan with wheels 35×14×14": "SPARTAWITHWHEELS35x14x14",
+  "spartan run back pack": "RUNBACKPACK",
+  "camo special (o) 38×14×11": "CAMOSPECIAL(O)38x14x11",
+  "camo back pack (o) 28×11×12": "CAMOBACKPACK(O)28x11x12",
+  "spartan limited edition keeping gloves": "LIMITEDEDITIONKEEPINGGLOVES",
+  "spartan eco gloves": "1ECOGLOVES",
+  "spartan special": "SPARTANSPECIAL",
+  "cg boss limited edition": "CGBOSSLIMITEDEDITION",
+  "spartan warrior": "SPARTANWARRIOR",
+  "spartan fighter": "SPARTANFIGHTER",
+  "spartan eco": "SPARTANECO",
+  "spartan bullet": "SPARTANBULLET",
+  "t20 special": "T20SPECIAL",
+  "run": "RUN",
+  "eco": "ECO",
+  "limited edition": "LIMITEDEDITION",
+
+  // Baden
+  "perfection elite game basketball": "PerfectionEliteGameBasketball",
+  "baden contender composite basketball": "BadenContenderCompositeBasketball",
+  "baden all star rubber basketball": "BadenAllStarRubberBasketball",
+  "baden legend 29.5": "BadenLegend29.5",
+  "baden rival game indoor basketball": "BadenRivalGameIndoorBasketball",
+  "pro32 basketball": "Pro32Basketball",
+  "skilcoach heavy trainer basketball": "SkilcoachHeavyTrainerBasketball",
+  "crossover basketball": "CrossoverBasketball",
+  "axe avenge pro 3 hybrid bbcor baseball": "AxeAvengePro3HybridBBCORBaseball",
+  "axe strato 2 bbcor baseball bat -3": "AxeStrato2BBCORBaseballBat3|StandardHandle",
+  "2022 Elite One Pro (-3) BBCOR Baseball" : "2022EliteOnePro(-3)BBCORBaseball",
+  "2023 Avenge Pro Hybrid FLARED (-3) BBCOR Baseball Bat" : "2023AvengeProHybridFLARED(-3)BBCORBaseballBat",
+  "baden perfection leather volleyball": "BadenPerfectionLeatherVolleyball",
+  "baden lexum composite volleyball": "BadenLexumCompositeVolleyball",
+  "baden Light / Microfiber Volleyball" : "BadenLight/MicrofiberVolleyball" ,
+  "baden Match Point Synthetic / Cushioned Volleyball" : "BadenMatchPointSynthetic/CushionedVolleyball" ,
+  "baden zseries soccer ball": "BadenZSeriesSoccerBall",
+  "baden Thermo NFHS Soccer Ball": "BadenThermoNFHSSoccerBall",
+  "baden Thermo Bonded Game Futsal Ball ST4LB": "BadenThermoBondedGameFutsalBallST4LB",
+  "baden Gold Trophy Series Promo Soccer Ball": "BadenGoldTrophySeriesPromoSoccerBall",
+  "baden champions volleyball set": "BadenChampionsVolleyballSet",
+  "baden kubb game set": "BadenKubbGameSet",
+  "baden Pro Volleyball Set":"BadenProVolleyballSet",
+  "baden deluxe croquet set": "BadenDeluxeCroquetSet",
+  "dink Pink 40 Pickleball 3-Pack": "DinkPink40Pickleball3Pack",
+  "Patriot 40 Pickleball 3-Pack": "Patriot40Pickleball3Pack",
+  "pro1 Pickleball 3-Pack": "PRO1Pickleball3Pack",
+  "baden rival 40 Pickleball 3-Pack": "Rival40Pickleball3Pack",
+  "limited Edition Bogey Boys Pickleball Paddle":"LimitedEditionBogeyBoysPickleballPaddle",
+  "perfection 3k pickleball paddle": "Perfection3kPickleballPaddle",
+  "battle point pickleball paddle": "BattlePointPickleballPaddle",
+  "youth pickleball paddle": "YouthPickleballPaddle",
+
+  // Pages
+  "nike": "nike.html",
+  "spartan": "spartan.html",
+  "baden": "baden.html",
+  "about us": "Aboutus.html",
+  "comparison": "comparision.html",
+  "home": "home.html",
+  "contact us": "contactus.html"
+};
+
+// ✅ Brand detection keywords
+// ✅ Brand detection keywords
+const brandMap = {
+  nike: [
+    "nike", "zoom", "pegasus", "flyknit", "react", "lebron", "vomero", "freak",
+    "hyperwarm", "swoosh", "duffel", "sock", "cap", "glove", "training",
+    "vapor", "speed", "pack"
+  ],
+  spartan: [
+    "spartan", "cb", "shadow", "t20", "eco", "fighter", "warrior", "boss",
+    "run", "bag", "shine", "camo", "special", "limited"
+  ],
+  baden: [
+    "baden", "basketball", "volleyball", "pickleball", "soccer", "baseball",
+    "bat", "ball", "croquet", "kubb", "thermo"
+  ]
+};
+
+// ✅ Normalize text for matching
+function normalize(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s]/g, " ") // remove symbols like %, ×, &, /
+    .replace(/\s+/g, " ") // collapse spaces
+    .trim();
+}
+
+// ✅ Detect brand from name or keywords
+function getBrandFromProductName(name) {
+  name = name.toLowerCase();
+
+  if (name.includes("spartan")) return "spartan";
+  if (name.includes("baden")) return "baden";
+  if (name.includes("nike")) return "nike";
+
+  // fallback brand detection
+  for (let brand in brandMap) {
+    if (brandMap[brand].some(k => name.includes(k))) {
+      return brand;
+    }
+  }
+  return null;
+}
+
+// ✅ Handle redirect
+function handleRedirect(productName) {
+  const productId = allProducts[productName];
+  if (!productId) return alert("Product not found in list!");
+
+  const brand = getBrandFromProductName(productName);
+  if (!brand) return alert(`Brand not recognized for: ${productName}`);
+
+  if (productId.endsWith(".html")) {
+    window.location.href = productId;
+  } else {
+    window.location.href = `${brand}.html#${productId}`;
+  }
+}
+
+// ✅ Smart Search Logic
+function searchProduct() {
+  const rawQuery = document.getElementById("searchBox").value.trim();
+  if (!rawQuery) return alert("Please enter a search term!");
+
+  const query = normalize(rawQuery);
+  const allKeys = Object.keys(allProducts);
+
+  // 1️⃣ Exact match
+  const exactMatch = allKeys.find(name => normalize(name) === query);
+  if (exactMatch) return handleRedirect(exactMatch);
+
+  // 2️⃣ Partial match
+  const partialMatch = allKeys.find(name => normalize(name).includes(query));
+  if (partialMatch) return handleRedirect(partialMatch);
+
+  // 3️⃣ Multi-word fallback
+  const queryWords = query.split(" ");
+  for (let name of allKeys) {
+    const normalized = normalize(name);
+    let matchCount = 0;
+    for (let word of queryWords) {
+      if (normalized.includes(word)) matchCount++;
+    }
+    if (matchCount >= Math.ceil(queryWords.length / 2)) {
+      return handleRedirect(name);
+    }
+  }
+
+  alert("Product or page not found!");
+}
+
+// ✅ Suggestion system (FULLY FIXED)
+const searchBox = document.getElementById("searchBox");
+const suggestionBox = document.getElementById("suggestions");
+let currentFocus = -1;
+
+searchBox.addEventListener("input", function() {
+  let query = normalize(this.value);
+  suggestionBox.innerHTML = "";
+  currentFocus = -1;
+
+  if (!query) {
+    suggestionBox.style.display = "none";
+    return;
+  }
+
+  const allKeys = Object.keys(allProducts);
+  // ✅ Improved matching: flexible & forgiving
+  let matches = allKeys.filter(item => {
+    const name = normalize(item);
+    // Must match at least one word
+    return query.split(" ").some(word => name.includes(word));
+  });
+
+  if (matches.length > 0) {
+    suggestionBox.style.display = "block";
+
+    // Sort by brand (optional but clean)
+    matches.sort((a, b) => {
+      const brandA = getBrandFromProductName(a) || "";
+      const brandB = getBrandFromProductName(b) || "";
+      return brandA.localeCompare(brandB);
+    });
+
+    matches.slice(0, 50).forEach(match => { // limit to avoid overflow
+      let div = document.createElement("div");
+      div.textContent = match;
+      div.classList.add("suggestion-item");
+      div.addEventListener("click", function() {
+        searchBox.value = match;
+        suggestionBox.innerHTML = "";
+        suggestionBox.style.display = "none";
+        searchProduct();
+      });
+      suggestionBox.appendChild(div);
+    });
+  } else {
+    suggestionBox.style.display = "none";
+  }
+});
+
+
+
+ searchBox.addEventListener("keydown", function(e) {
+   let items = suggestionBox.getElementsByClassName("suggestion-item");
+   if (!items.length) return;
+   if (e.key === "ArrowDown") {
+     currentFocus++;
+     addActive(items);
+   } else if (e.key === "ArrowUp") {
+     currentFocus--;
+     addActive(items);
+   } else if (e.key === "Enter") {
+     e.preventDefault();
+     if (currentFocus > -1 && items[currentFocus]) {
+       items[currentFocus].click();
+     } else {
+       searchProduct();
+     }
+   }
+ });
+
+ function addActive(items) {
+   if (!items) return false;
+   removeActive(items);
+   if (currentFocus >= items.length) currentFocus = 0;
+   if (currentFocus < 0) currentFocus = items.length - 1;
+   items[currentFocus].classList.add("active-suggestion");
+ }
+
+ function removeActive(items) {
+   for (let item of items) {
+     item.classList.remove("active-suggestion");
+   }
+ }
+</script>
+</body>
+</html>
